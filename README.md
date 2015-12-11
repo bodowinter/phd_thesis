@@ -7,7 +7,9 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 
 ### Data files:
 
-- lynott_connell_2009_norms.csv : contains the 
+- lynott_connell_2009_adj_norms.csv : contains modality norms for adjectives
+- lynott_connell_2013_noun_norms.csv : contains modality norms for nouns
+- winter_2015_verb_norms.csv : contains newly collected modality norms for verbs
 
 
 ### Script files:

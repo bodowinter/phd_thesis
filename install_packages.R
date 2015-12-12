@@ -4,7 +4,7 @@
 
 install.packages('dplyr')
 
-install.packages('reshape')
+install.packages('reshape2')
 
 install.packages('MASS')
 
@@ -15,6 +15,12 @@ install.packages('party')
 install.packages('diptest')
 
 install.packages('lme4')
+
+install.packages('sandwich')
+
+install.packages('lmtest')
+
+install.packages('lavaan')
 
 install.packages('glmmADMB', 
     repos = c('http://glmmadmb.r-forge.r-project.org/repos',

@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## September 17, 2015; New approach October 15, 2015
-## Analysis for Ch. 3.2, 'Word frequency asymmetries'
+## Analysis for Ch. 2.5, 'Word frequency asymmetries'
 
 ##------------------------------------------------------------------
 ## Pre-processing:
@@ -268,6 +268,51 @@ lower_axis(type = 2, style = 'modality', N = xall$DominantModality)
 left_axis(at = seq(0, 2500, 500),
 	text = '', type = 3)
 mtext(side = 2, line = 4.5, 'Predicted frequency', cex = 1.85, font = 2)
+
+
+
+##------------------------------------------------------------------
+## Stability Check #2: Diachronic variation (Google NGram)
+##------------------------------------------------------------------
+
+## Load in Google data:
+
+goo <- read.csv('google_ngram.csv')
+
+## Add dominant modality information:
+
+goo$Modality <- l[match(goo$Word, l$Word),]$DominantModality
+
+## Compute averages:
+
+goo_agr <- summarise(group_by(goo, Year, Modality),
+	FreqMean = mean(Frequency), FreqSD = sd(Frequency))
+
+## Create a plot of this:
+
+setup_plots(N = 1)
+emptyplot(xlim = c(1700, 2060), ylim = c(0, 0.00004))
+for (i in 1:5) {
+	this_modality <- unique(goo_agr$Modality)[i]
+	with(goo_agr[goo_agr$Modality == this_modality,],
+		points(Year, FreqMean, type = 'l', lwd = 2, col = 1)	# change for color
+		)
+	}
+axis(side = 1, at = seq(1700, 2000, 100), lwd = 2, font = 2, cex.axis = 1.5)
+axis(side = 2, at = seq(0, 0.00004, length.out = 5),
+	labels = paste(0:4, 'e-05', sep = ''),
+	lwd = 2, font = 2, cex.axis = 1.25, las = 2)
+mtext(side = 1, text = 'Year',
+	line = 3, font = 2, cex = 1.9)
+mtext(side = 2, text = 'Relative frequency', line = 4.6, font = 2, cex = 1.8)
+axis(side = 1, at = 1:7, lwd = 2, font = 2, cex.axis = 1.5)
+text(x = 1900, y = 0.0000375, labels = 'Visual', font = 2, cex = 1.5)
+text(x = 1900, y = 0.0000165, labels = 'Tactile', font = 2, cex = 1.5)
+text(x = 1900, y = 0.0000085, labels = 'Olfactory', font = 2, cex = 1.5)
+text(x = 2040, y = 0.000004, labels = 'Auditory', font = 2, cex = 1.15)
+text(x = 2040, y = 0.000002, labels = 'Gustatory', font = 2, cex = 1.15)
+
+
 
 
 

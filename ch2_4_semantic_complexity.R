@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## Created: September 20, 2015
-## Analysis for Ch. 2.3, 'Differences in semantic complexity'
+## Analysis for Ch. 2.4, 'Differences in semantic complexity'
 
 ##------------------------------------------------------------------
 ## Pre-processing:

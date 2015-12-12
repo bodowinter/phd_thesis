@@ -14,9 +14,13 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ELP_frequency.csv : word frequencies used in Ch .2
 - MRC.csv : word frequencies used in Ch. 2
 - SUBTLEX_US.csv : word frequencies used in Ch. 2, POS tags used in Ch. 5
+- google_ngram.csv : google ngram frequencies of Lynott & Connell (2009) adjs (Ch. 2.5)
 - COCA_adj_frequencies.csv : frequency and contextual diversity from COCA (Ch.2)
 - COCA_noun_frequencies.csv : frequency and contextual diversity from COCA (Ch.2)
 - COCA_verb_frequencies.csv : frequency and contextual diversity from COCA (Ch.2)
+- warriner_2013_affective_norms.csv : valence norms used in Ch. 3
+- sentiwordnet_3.0.csv : valence norms from sentiwordnet 3.0 used in Ch. 3
+- NRC_hashtag_unigrams-pmilexicon.txt : Twitter Emotion corpus valence norms used in Ch. 3
 
 ### Script files:
 
@@ -25,6 +29,7 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ch2_3_lexical_differentiation.R
 - ch2_4_semantic_complexity.R
 - ch2_5_frequency_asymmetries.R
+- ch3_2_emotional_valence.R
 
 
 Created Dec 11, 2015

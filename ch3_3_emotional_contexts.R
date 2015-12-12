@@ -30,17 +30,31 @@ setwd(file.path(mainPath, 'data'))
 l <- read.csv('lynott_connell_2009_adj_norms.csv')
 n <- read.csv('lynott_connell_2013_noun_norms.csv')
 v <- read.csv('winter_2015_verb_norms.csv')
+
+## Random subset of verbs:
+
 v <- filter(v, RandomSet == 'yes')
+
+## Combine all:
+
+xall <- rbind(dplyr::select(l, Word, DominantModality),
+	dplyr::select(n, Word, DominantModality),
+	dplyr::select(v, Word, DominantModality))
 
 ## Load in data:
 
 adj <- read.csv('COCA_adj_noun.csv')
 
-## Make word column to lower caps:
+## Get rid of unwanted labels (e.g., uppercase nouns):
 
 adj$Noun <- tolower(adj$Noun)
 adj <- aggregate(Freq ~ Noun * Word, adj, sum)
 adj <- dplyr::select(adj, Word, Noun, Freq)
+
+## Define vector with order of modalities:
+
+modalities <- c('Visual', 'Haptic', 'Auditory', 'Gustatory', 'Olfactory')
+
 
 
 ##------------------------------------------------------------------
@@ -58,11 +72,11 @@ hash <- read.csv('NRC_hashtag_unigrams-pmilexicon.txt', sep = '\t', header = F)
 
 ## Colnames:
 
-hash <- rename(hash, Word = V1, SentimentScore = V2, NumPos = V3, NumNeg = V4)
+hash <- rename(hash, Word = V1, Sent = V2, NumPos = V3, NumNeg = V4)
 
 ## Create absolute valence score:
 
-hash <- mutate(hash, AbsSent = abs(SentimentScore - mean(SentimentScore, na.rm = T)))
+hash <- mutate(hash, AbsSent = abs(Sent - mean(Sent, na.rm = T)))
 
 ## Load in Senti Wordnet:
 
@@ -179,7 +193,7 @@ left_axis(text = 'Log Slope', at = seq(-0.5, 2, 0.5), type = 1)
 
 
 ##------------------------------------------------------------------
-## Analyse COCA adj-noun pairs:
+## Preprocess COCA adj-noun pairs:
 ##------------------------------------------------------------------
 
 ## Merge dominant modality into there:
@@ -200,16 +214,15 @@ adj <- mutate(adj, Weight = Freq / AdjFreq)
 
 ## Merge valence into adj:
 
-adj$Valence <- aff[match(adj$Noun, aff$Word),]$V.Mean.Sum
+adj$Valence <- aff[match(adj$Noun, aff$Word),]$Val
 adj$AbsV <- aff[match(adj$Noun, aff$Word),]$AbsV
 
 ## Merge:
 
-adj <- cbind(adj, hash[match(adj$Noun, hash$Word), c('SentimentScore', 'AbsSent')])
+adj$Sent <- hash[match(adj$Noun, hash$Word), ]$Sent
+adj$AbsSent <- hash[match(adj$Noun, hash$Word), ]$AbsSent
 
-## Reduce to set of words that are also in 'l':
-
-# # Loop through each Lynott and Connell (2009) term and retrieve the corresponding senti wordnet entries:
+# Define empty dataset with slots for all nouns that co-occur with adjectives:
 
 all_nouns <- unique(adj$Noun)
 all_nouns <- data.frame(Noun = all_nouns)
@@ -222,6 +235,8 @@ not_these <- grep('\\(', all_nouns$Noun)
 all_nouns <- all_nouns[-not_these,]
 not_these <- grep('\\*', all_nouns$Noun)
 all_nouns <- all_nouns[-not_these,]
+
+## Get SentiWordNet data for each noun:
 
 for (i in 1:nrow(all_nouns)) {
 	this_word <- all_nouns[i,]$Noun
@@ -239,9 +254,12 @@ for (i in 1:nrow(all_nouns)) {
 		}
 	}
 
-## Overall valence:
+## Valence difference score (in analogy to 'Val' and 'Sent' for the other data):
 
 all_nouns <- mutate(all_nouns, PosDiff = PosScore - NegScore)
+
+## Overall valence from SentiWordNet 3.0 (corresponds to  'absolute valence' of the other data):
+
 all_nouns$ValMax <- apply(all_nouns[,c('PosScore', 'NegScore')], 1, max)
 
 ## Add to adj dataframe:
@@ -253,7 +271,7 @@ adj <- cbind(adj, all_nouns[match(adj$Noun, all_nouns$Noun),c('PosScore','NegSco
 xagr <- summarise(group_by(adj, Word),
 	Valence = mean(Valence, na.rm = T, w = Weight),
 	AbsV = mean(AbsV, na.rm = T, w = Weight),
-	SentimentScore = mean(SentimentScore, na.rm = T, w = Weight),
+	Sent = mean(Sent, na.rm = T, w = Weight),
 	AbsSent = mean(AbsSent, na.rm = T, w = Weight),
 	PosDiff = mean(PosDiff, na.rm = T, w = Weight),
 	PosScore = mean(PosScore, na.rm = T, w = Weight),
@@ -261,6 +279,16 @@ xagr <- summarise(group_by(adj, Word),
 	ValMax = mean(ValMax, na.rm = T, w = Weight))
 xagr$DominantModality <- l[match(xagr$Word, l$Word),]$DominantModality
 xagr <- xagr[xagr$Word %in% l$Word,]
+
+
+
+##------------------------------------------------------------------
+## Analysis of context valence:
+##------------------------------------------------------------------
+
+## Re-order:
+
+xagr$DominantModality <- factor(xagr$DominantModality, levels = modalities)
 
 ## Perform tests, Warriner:
 
@@ -272,7 +300,7 @@ anova(war.abs)
 
 ## Perform tests, Twitter Emotion Corpus:
 
-summary(TEC.val <- lm(SentimentScore ~ DominantModality, xagr))
+summary(TEC.val <- lm(Sent ~ DominantModality, xagr))
 anova(TEC.val)
 
 summary(TEC.abs <- lm(AbsSent ~ DominantModality, xagr))
@@ -291,7 +319,7 @@ anova(senti.max)
 t.test(Valence ~ DominantModality,
 	filter(xagr, DominantModality %in% c('Gustatory', 'Olfactory')), var.equal = T)
 
-t.test(SentimentScore ~ DominantModality,
+t.test(Sent ~ DominantModality,
 	filter(xagr, DominantModality %in% c('Gustatory', 'Olfactory')), var.equal = T)
 
 t.test(PosDiff ~ DominantModality,
@@ -300,16 +328,10 @@ t.test(PosDiff ~ DominantModality,
 ## Make a plot with predictions:
 
 war.abs.pred <- my.predict.lm(war.abs)
-war.abs.pred$DominantModality <- factor(war.abs.pred$DominantModality, levels = modalities)
-war.abs.pred <- war.abs.pred[order(war.abs.pred$DominantModality),]
-
-xagr$DominantModality <- factor(xagr$DominantModality, levels = modalities)
 
 ## Get predictions:
 
 TEC.abs.pred <- my.predict.lm(TEC.abs)
-TEC.abs.pred$DominantModality <- factor(TEC.abs.pred$DominantModality, levels = modalities)
-TEC.abs.pred <- TEC.abs.pred[order(TEC.abs.pred$DominantModality),]
 
 ## Combination of two plots:
 ## Both absolut valence, Warriner left, SentiWordNet right:
@@ -326,7 +348,7 @@ top_labels(first_text = 'Warriner et al. (2013)', second_text = '', type = 2)
 emptyplot(xlim = c(0.5, 5.5), ylim = c(0.4, 1), AB = '(b)')
 draw_preds(TEC.abs.pred)
 lower_axis(N = xagr$DominantModality, type = 2)
-top_labels(first_text = 'Twitter Emotion Corpus', second_text = '', type = 2)
+top_labels(first_text = 'Mohammad (2012)', second_text = '', type = 2)
 mtext(side = 4, text = 'Absolute Valence', line = 3.5, font = 2, cex = 2)
 axis(side = 4, at = seq(0.4, 1, 0.2), lwd = 2, font = 2, cex.axis = 1.5, las = 2)
 

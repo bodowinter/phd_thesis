@@ -21,6 +21,10 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - warriner_2013_affective_norms.csv : valence norms used in Ch. 3
 - sentiwordnet_3.0.csv : valence norms from sentiwordnet 3.0 used in Ch. 3
 - NRC_hashtag_unigrams-pmilexicon.txt : Twitter Emotion corpus valence norms used in Ch. 3
+- COCA_adj_noun.csv : adjectives with singular nouns, cleaned
+- pang_lee_2004_subjective.txt : Pang & Lee (2004) subjective text snippets from rottentomatoes.com
+- pang_lee_2004_objective.txt : Pang & Lee (2004) objective text snippets from rottentomatoes.com
+- macmillan_taste_smell_words.csv : for discussion in Ch. 3.5, whether MacMillan lists a taste/smell word to be valenced
 
 ### Script files:
 
@@ -30,6 +34,6 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ch2_4_semantic_complexity.R
 - ch2_5_frequency_asymmetries.R
 - ch3_2_emotional_valence.R
-
+- ch3_3_emotional_contexts.R
 
 Created Dec 11, 2015

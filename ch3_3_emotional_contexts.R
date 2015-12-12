@@ -50,6 +50,7 @@ adj <- dplyr::select(adj, Word, Noun, Freq)
 ## Load in Warriner:
 
 aff <- read.csv('warriner_2013_affective_norms.csv')
+aff <- mutate(aff, AbsV = abs(Val - mean(Val)))	# absolute valence
 
 ## Load in NRC Hashtag data:
 

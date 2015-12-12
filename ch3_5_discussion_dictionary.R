@@ -8,20 +8,26 @@
 
 ## Load in dictionary data:
 
-dic <- read.csv('taste_and_smell_words_only_for_dictionary_evaluative_meaning_bw.csv')
+setwd('/Users/teeniematlock/Desktop/sense_phd/analysis/data/')
+dic <- read.csv('macmillan_taste_smell_words.csv')
+
+## Load in other data:
+
+l <- read.csv('lynott_connell_2009_adj_norms.csv')
+aff <- read.csv('warriner_2013_affective_norms.csv')
 
 ## Merge with Lynott:
 
 dic$DominantModality <- l[match(dic$Word, l$Word),]$DominantModality
 
-## Test for association:
+## Check for association:
 
-table(dic$Dictionary, dic$DominantModality)[-2,4:5]
-chisq.test(table(dic$Dictionary, dic$DominantModality)[-2,4:5])
+table(dic$Dictionary, dic$DominantModality)
 
 ## Add valence:
 
-dic$Val <- aff[match(dic$Word, aff$Word),]$V.Mean.Sum
+dic$Val <- aff[match(dic$Word, aff$Word),]$Val
+aff <- mutate(aff, AbsV = abs(Val - mean(Val)))
 dic$AbsV <- aff[match(dic$Word, aff$Word),]$AbsV
 
 ## Look at valence:

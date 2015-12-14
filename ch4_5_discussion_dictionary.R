@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## Dec 12, 2015
-## Supplementary analysis for Ch. 3.5, 'Discussion'
+## Supplementary analysis for Ch. 4.5, 'Discussion'
 
 ##------------------------------------------------------------------
 ## Test of whether dictionary meanings specify pleasantness (MacMillan):

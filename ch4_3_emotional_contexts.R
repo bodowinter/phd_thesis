@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## October 19, 2015
-## Analysis for Ch. 3.3, 'Taste and smell words in context'
+## Analysis for Ch. 4.3, 'Taste and smell words in context'
 
 ##------------------------------------------------------------------
 ## Pre-processing:

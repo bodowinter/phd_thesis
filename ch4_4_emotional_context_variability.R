@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## October 19, 2015
-## Analysis for Ch. 3.4, 'Taste and smell words are more emotionally variable'
+## Analysis for Ch. 4.4, 'Taste and smell words are more emotionally variable'
 
 
 ##------------------------------------------------------------------

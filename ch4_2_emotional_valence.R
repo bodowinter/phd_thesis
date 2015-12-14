@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## September 17, 2015
-## Analysis for Ch. 3.2, 'Characterizing the odor and taste lexicon'
+## Analysis for Ch. 4.2, 'Characterizing the odor and taste lexicon'
 
 ##------------------------------------------------------------------
 ## Pre-processing:

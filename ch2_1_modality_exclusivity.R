@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## Created: September 20, 2015
-## Analysis for Ch. 2.2, 'Using modality norms to characterize the senses'
+## Analysis for Ch. 2.1, 'Using modality norms to characterize the senses'
 
 ##------------------------------------------------------------------
 ## Pre-processing:

@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## Created: September 20, 2015
-## Analysis for Ch. 2.3, 'Using Lexical differentiation and specialization of the senses'
+## Analysis for Ch. 3.2, 'Differential lexicalization'
 
 ##------------------------------------------------------------------
 ## Pre-processing:

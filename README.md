@@ -29,12 +29,12 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 ### Script files:
 
 - install_packages.R : installation procedures for all packages used
-- ch2_3_lexical_differentiation.R
-- ch2_3_lexical_differentiation.R
-- ch2_4_semantic_complexity.R
-- ch2_5_frequency_asymmetries.R
-- ch3_2_emotional_valence.R
-- ch3_3_emotional_contexts.R
-- ch3_4_emotional_context_variability.R
+- ch2_1_modality_exclusivity.R
+- ch3_2_lexical_differentiation.R
+- ch3_3_semantic_complexity.R
+- ch3_4_frequency_asymmetries.R
+- ch4_2_emotional_valence.R
+- ch4_3_emotional_contexts.R
+- ch4_4_emotional_context_variability.R
 
 Created Dec 11, 2015

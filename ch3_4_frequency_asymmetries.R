@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## September 17, 2015; New approach October 15, 2015
-## Analysis for Ch. 2.5, 'Word frequency asymmetries'
+## Analysis for Ch. 3.5, 'Word frequency asymmetries'
 
 ##------------------------------------------------------------------
 ## Pre-processing:

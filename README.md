@@ -24,7 +24,7 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - COCA_adj_noun.csv : adjectives with singular nouns, cleaned
 - pang_lee_2004_subjective.txt : Pang & Lee (2004) subjective text snippets from rottentomatoes.com (Ch. 4)
 - pang_lee_2004_objective.txt : Pang & Lee (2004) objective text snippets from rottentomatoes.com (Ch. 4)
-- macmillan_taste_smell_words.csv : for discussion in Ch. 4.5, whether MacMillan lists a taste/smell word to be valenced
+- macmillan_taste_smell_words.csv : for discussion in Ch. 4.5, whether MacMillan lists a word to be valenced
 - wordnet_macmillan_senses.csv : sense counts from WordNet and MacMillan, used in Ch. 3 and 5
 - stadtlander_murdoch_2000.csv : roughness and hardness norms used in Ch. 5 and 6
 - stadtlander_murdoch_2000_COCA_context.csv : COCA adjective-noun pairs that have the Stadtlander words (Ch. 5)
@@ -39,7 +39,7 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - nonword_study_batch2_smooth_instructions.xlsx : experiment data from Qualtrics, smooth condition (Ch. 6)
 - adjective_context_valence.csv : context valence computed according to the approach in Ch. 4 (Ch. 8)
 - lynott_connell_2009_semantic_codings.csv : hand-coded extra categories (color, dimension words tc.) (Ch. 8)
-- stadtlander_roughness_OED_watkins_2000.csv : OED etymologies and PIE roots from Watkins for Stadtlander words (Ch. 6)
+- stadtlander_roughness_OED_watkins_2000.csv : OED etymologies and Watkins PIE roots for Stadtlander words (Ch. 6)
 - strik_lievers_2015_nouns_with_freq.csv : nouns from Strik Lievers 2015 with COCA frequencies (Ch. 8)
 
 ### Script files:

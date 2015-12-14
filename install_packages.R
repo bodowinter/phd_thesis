@@ -24,6 +24,8 @@ install.packages('lavaan')
 
 install.packages('xlsx')
 
+install.packages('stringr')
+
 install.packages('glmmADMB', 
     repos = c('http://glmmadmb.r-forge.r-project.org/repos',
             getOption('repos')),

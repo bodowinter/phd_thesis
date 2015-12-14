@@ -8,7 +8,7 @@
 
 ## Define path to parent directory:
 
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd'
+mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis'
 
 ## Load in data:
 

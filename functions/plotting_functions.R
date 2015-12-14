@@ -161,7 +161,7 @@ lower_axis <- function(style = 'modality', lab = 'Modality', N = NULL, type = 3,
 left_axis <- function(text = '', at = seq(0, 5, 1), type = 3, ...) {
 	axis(side = 2, at = at, lwd = 2, font = 2, cex.axis = 1.5, las = 2, ...)
 	if (type == 3) mtext(side = 2, text = text, line = 4.2, font = 2, cex = 1.4)
-	if (type == 2) mtext(side = 2, text = text, line = 3.4, font = 2, cex = 1.6)
+	if (type == 2) mtext(side = 2, text = text, line = 3.3, font = 2, cex = 1.9)
 	if (type == 1) mtext(side = 2, text = text, line = 4.1, font = 2, cex = 2)
 	}
 

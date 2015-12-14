@@ -108,9 +108,9 @@ all_nouns <- all_nouns[-not_these,]
 ## Get SentiWordNet data for each noun:
 
 for (i in 1:nrow(all_nouns)) {
-	this_word <- all_nouns[i,]$Noun
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
-	these_sent <- grep(this_regex, sent$SynsetTerms)
+		this_word <- all_nouns[i,]$Noun
+		this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
+		these_sent <- grep(this_regex, sent$SynsetTerms)
 		if (length(these_sent) > 0) {
 		
 		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])

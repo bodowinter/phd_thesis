@@ -37,6 +37,10 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ch6_r_words_stimuli.csv : the stimuli table used for the experiment in Ch. 6
 - nonword_study_batch1_rough_instructions.xlsx : experiment data from Qualtrics, rough condition (Ch. 6)
 - nonword_study_batch2_smooth_instructions.xlsx : experiment data from Qualtrics, smooth condition (Ch. 6)
+- adjective_context_valence.csv : context valence computed according to the approach in Ch. 4 (Ch. 8)
+- lynott_connell_2009_semantic_codings.csv : hand-coded extra categories (color, dimension words tc.) (Ch. 8)
+- stadtlander_roughness_OED_watkins_2000.csv : OED etymologies and PIE roots from Watkins for Stadtlander words (Ch. 6)
+- strik_lievers_2015_nouns_with_freq.csv : nouns from Strik Lievers 2015 with COCA frequencies (Ch. 8)
 
 ### Script files:
 
@@ -52,5 +56,7 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ch6_4_sensory_iconicity.R
 - ch6_5_roughness_iconicity.R
 - ch7_correlations.R
+- ch8_3_cosine_similarity.R
+- ch8_4_strik_lievens_nouns_table.R
 
 Created Dec 11, 2015

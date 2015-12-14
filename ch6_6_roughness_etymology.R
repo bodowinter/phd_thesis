@@ -1,7 +1,6 @@
 ## Bodo Winter
 ## October 2, 2015
-## Stadtlander Etymology investigation
-
+## Analysis for Ch. 6.6, 'What explains the association between roughness and /r/?'
 
 ##------------------------------------------------------------------
 ## Pre-processing:
@@ -18,10 +17,18 @@ library(dplyr)
 
 options(stringsAsFactors = F)
 
+## Define path to parent directory:
+
+mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis/'
+
+## Load in plotting functions:
+
+source(file.path(mainPath, 'functions/plotting_functions.R'))
+
 ## Load in data:
 
-setwd('/Users/teeniematlock/Desktop/sense_phd/data/')
-stadt <- read.csv('stadt_rough_hard_words_oed_watkins_2000.csv')
+setwd(file.path(mainPath, 'data'))
+stadt <- read.csv('stadtlander_roughness_OED_watkins_2000.csv')
 
 ## Get rid of that on NA ('smooshy' was not found in the OED):
 
@@ -35,8 +42,6 @@ stadt$MainYear <- gsub('\\?|[a-z]', '', stadt$MainYear)
 ## Fix these in the Etymon Year column; set '13..' to '1300':
 
 stadt[which(stadt$EtymonYear == '13..'),]$EtymonYear <- '1300'
-stadt[65,]$EtymonYear <- '1300'
-stadt[stadt$EtymonYear == '14\xc4',]$EtymonYear <- '1400'
 
 ## Get rid of extra info for EtymonYear:
 
@@ -65,31 +70,10 @@ stadt$EtymonYear <- as.numeric(stadt$EtymonYear)
 stadt$TotalEtymYear <- stadt$MainYear
 stadt[which(stadt$EtymonYear < stadt$MainYear), ]$TotalEtymYear <- stadt[which(stadt$EtymonYear < stadt$MainYear), ]$EtymonYear
 
-
-
-##------------------------------------------------------------------
-## Create /r/ variables:
-##------------------------------------------------------------------
-
 ## Has_r variable:
-
-stadt$Initial_r <- 'no'
-stadt[grep('^r', stadt$Word),]$Initial_r <- 'yes'
-
-stadt$InitialCluster_r <- 'no'
-stadt[grep('^[a-z]r', stadt$Word),]$InitialCluster_r <- 'yes'
-
-stadt$Has_r_Initial <- 'no'
-stadt[stadt$Initial_r == 'yes' | stadt$InitialCluster_r == 'yes',]$Has_r_Initial <- 'yes'
 
 stadt$Has_r <- 'no'
 stadt[grep('r', stadt$Word),]$Has_r <- 'yes'
-
-stadt$Has_r_end <- 'no'
-stadt[grep('r$', stadt$Word),]$Has_r_end <- 'yes'
-
-stadt$Has_r_elsewhere <- 'no'
-stadt[stadt$Has_r == 'yes' & stadt$InitialCluster_r == 'no' & stadt$Initial_r == 'no' & stadt$Has_r_end == 'no',]$Has_r_elsewhere = 'yes'
 
 
 ##------------------------------------------------------------------
@@ -111,17 +95,6 @@ stadt[which(stadt$HardnessMean > median(stadt$HardnessMean, na.rm = T)),]$HardCa
 ## Create 'consistent addition' variable:
 ##------------------------------------------------------------------
 
-## For hardness:
-
-hard_R <- stadt$HardCat == 'high' & stadt$Has_r == 'yes'
-soft_noR <- stadt$HardCat == 'low' & stadt$Has_r != 'no'
-hard_noR <- stadt$HardCat == 'high' & stadt$Has_r == 'no'
-soft_R <- stadt$HardCat == 'low' & stadt$Has_r != 'yes'
-
-stadt$HardConsistentAddition <- NA
-stadt[which(hard_R | soft_noR),]$HardConsistentAddition <- 'consistent'
-stadt[which(hard_noR | soft_R),]$HardConsistentAddition <- 'inconsistent'
-
 ## For roughness:
 
 rough_R <- stadt$RoughCat == 'high' & stadt$Has_r == 'yes'
@@ -133,64 +106,34 @@ stadt$RoughConsistentAddition <- NA
 stadt[which(rough_R | smooth_noR),]$RoughConsistentAddition <- 'consistent'
 stadt[which(rough_noR | smooth_R),]$RoughConsistentAddition <- 'inconsistent'
 
+## For hardness:
+
+hard_R <- stadt$HardCat == 'high' & stadt$Has_r == 'yes'
+soft_noR <- stadt$HardCat == 'low' & stadt$Has_r != 'no'
+hard_noR <- stadt$HardCat == 'high' & stadt$Has_r == 'no'
+soft_R <- stadt$HardCat == 'low' & stadt$Has_r != 'yes'
+
+stadt$HardConsistentAddition <- NA
+stadt[which(hard_R | soft_noR),]$HardConsistentAddition <- 'consistent'
+stadt[which(hard_noR | soft_R),]$HardConsistentAddition <- 'inconsistent'
+
 ## Arrange by year:
 
 stadt <- arrange(stadt, TotalEtymYear)
 
 
 
-## Check consistent additions over time:
-
-quartz('', 8, 6)
-plot(stadt$TotalEtymYear, jitter(as.numeric(as.factor(stadt$RoughConsistentAddition)), 0.5), pch = 19)
-summary(glm(as.factor(RoughConsistentAddition) ~ TotalEtymYear, stadt, family = 'binomial'))
-
-
-
 ##------------------------------------------------------------------
-## Look at data:
+## Look at temporal trend:
 ##------------------------------------------------------------------
 
-df <- stadt[stadt$TotalEtymYear > 1900,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 1800 & stadt$TotalEtymYear < 1900,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 1700 & stadt$TotalEtymYear < 1800,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 1600 & stadt$TotalEtymYear < 1700,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 1500 & stadt$TotalEtymYear < 1600,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 1400 & stadt$TotalEtymYear < 1500,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 1300 & stadt$TotalEtymYear < 1400,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 1200 & stadt$TotalEtymYear < 1300,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear >= 1000 & stadt$TotalEtymYear < 1200,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 900 & stadt$TotalEtymYear < 1000,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 800 & stadt$TotalEtymYear < 900,]
-table(df$Has_r, df$HardCat)
-
-df <- stadt[stadt$TotalEtymYear > 700 & stadt$TotalEtymYear < 800,]
-table(df$Has_r, df$HardCat)
+## Create empty vectors to store proportions:
 
 all_years <- unique(stadt$TotalEtymYear)
-
 hard_all_props <- numeric(length(all_years))
 rough_all_props <- numeric(length(all_years))
+
+## Loop through and add proportions:
 
 for (i in 1:length(all_years)) {
 	this_year <- all_years[i]
@@ -200,7 +143,6 @@ for (i in 1:length(all_years)) {
 	hard_all_props[i] <- (1 - sum(diag(hard_table)) / sum(hard_table))
 	rough_all_props[i] <- (1 - sum(diag(rough_table)) / sum(rough_table))
 	}
-
 
 ## Historical trend tlot for proportion of modality matches over time:
 
@@ -212,7 +154,6 @@ left_axis(text = 'Proportion of matches', at = seq(0.2, 1.0, 0.2), type = 1)
 points(all_years, rough_all_props, type = 'l', lwd = 2)
 points(all_years, rough_all_props, lwd = 1, pch = 19, cex = 1.2, col = rgb(0, 0, 0, 0.4))
 segments(x0 = all_years, y0 = 0.2, y1 = 0.22)
-
 
 
 
@@ -231,5 +172,9 @@ PIE[grep('r', PIE$IE_root_watkins_2000),]$PIE_r <- 'r'
 table(PIE$RoughCat, PIE$PIE_r)
 table(PIE$HardCat, PIE$PIE_r)
 
+## Chi-squar test of PIE data:
+
 chisq.test(table(PIE$RoughCat, PIE$PIE_r))
+
+
 

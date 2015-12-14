@@ -120,7 +120,8 @@ xall$PosScoreSD <- NA
 xall$NegScoreSD <- NA
 for (i in 1:nrow(xall)) {
 	this_word <- xall[i,]$Word
-	these_sent <- grep(this_word, sent$SynsetTerms)
+	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
+	these_sent <- grep(this_regex, sent$SynsetTerms)
 	if (length(these_sent) > 0) {
 		
 		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])
@@ -244,36 +245,15 @@ t.test(SentimentScore ~ DominantModality, filter(xall, DominantModality %in% c('
 
 summary(xmdl.posdiff <- lm(PosDiff ~ DominantModality, xall))
 summary(xmdl.max <- lm(ValMax ~ DominantModality, xall))
-summary(xmdl.pos <- lm(PosScore ~ DominantModality, xall))
-summary(xmdl.neg <- lm(NegScore ~ DominantModality, xall))
 
 ## Perform likelihood ratio tests against null model:
 
 anova(xmdl.posdiff)
-anova(xmdl.pos)
-anova(xmdl.neg)
+anova(xmdl.max)
 
 ## Get predictions:
 
-pos.pred <- my.predict.lm(xmdl.pos)
-neg.pred <- my.predict.lm(xmdl.neg)
 max.pred <- my.predict.lm(xmdl.max)
-
-## Make a plot of positivity and negativity:
-
-setup_plots(N = 2)
-## Plot 1:
-emptyplot(xlim = c(0.5, 5.5), ylim = c(0, 0.15))
-draw_preds(pos.pred)
-lower_axis(N = xall$DominantModality, type = 2)
-top_labels(first_text = 'Positivity', second_text = '', type = 2)
-left_axis(text = 'Score', at = seq(0, 0.15, 0.05), type = 3)
-## Plot 2:
-emptyplot(xlim = c(0.5, 5.5), ylim = c(0, 0.3))
-draw_preds(neg.pred)
-lower_axis(N = xall$DominantModality, type = 2)
-top_labels(first_text = 'Negativity', second_text = '', type = 2)
-left_axis(text = '', at = seq(0, 0.4, 0.05), type = 3)
 
 ## Make a plot of valmax:
 

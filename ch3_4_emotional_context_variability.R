@@ -109,8 +109,9 @@ all_nouns <- all_nouns[-not_these,]
 
 for (i in 1:nrow(all_nouns)) {
 	this_word <- all_nouns[i,]$Noun
-	these_sent <- grep(this_word, sent$SynsetTerms)
-	if (length(these_sent) > 0) {
+	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
+	these_sent <- grep(this_regex, sent$SynsetTerms)
+		if (length(these_sent) > 0) {
 		
 		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])
 		all_nouns[i,]$PosScore <- means[1]
@@ -203,8 +204,9 @@ top_labels(first_text = 'Mohammad (2012)', second_text = '', type = 2)
 xall$PosScoreSD <- NA
 xall$NegScoreSD <- NA
 for (i in 1:nrow(xall)) {
-	this_word <- xall[i,]$Word
-	these_sent <- grep(this_word, sent$SynsetTerms)
+	this_word <- all_nouns[i,]$Noun
+	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
+	these_sent <- grep(this_regex, sent$SynsetTerms)
 	if (length(these_sent) > 0) {
 		
 		sds <- apply(sent[these_sent,c('PosScore', 'NegScore')], 2, sd)

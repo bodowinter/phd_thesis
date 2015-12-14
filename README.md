@@ -35,5 +35,6 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ch2_5_frequency_asymmetries.R
 - ch3_2_emotional_valence.R
 - ch3_3_emotional_contexts.R
+- ch3_4_emotional_context_variability.R
 
 Created Dec 11, 2015

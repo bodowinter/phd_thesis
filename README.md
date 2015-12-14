@@ -33,6 +33,10 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - iconicity_ratings.csv : iconicity ratings co-collected with Lynn Perry, Marcus Perlman and Gary Lupyan (Ch. 6, 8)
 - phonesthemes_hutchins_1998.xlsx : hand-coded phonesthemes based on Hutchins (1998) appendix (Ch. 6)
 - ELP_pronunciations.csv : phonological codings from the English Lexicon Project (Ch. 6)
+- ch6_experiment_list.csv : lists which stimulus combinations were used in each list of the experiment in Ch. 6
+- ch6_r_words_stimuli.csv : the stimuli table used for the experiment in Ch. 6
+- nonword_study_batch1_rough_instructions.xlsx : experiment data from Qualtrics, rough condition (Ch. 6)
+- nonword_study_batch2_smooth_instructions.xlsx : experiment data from Qualtrics, smooth condition (Ch. 6)
 
 ### Script files:
 
@@ -47,5 +51,6 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ch5_roughness_hedonics.R
 - ch6_4_sensory_iconicity.R
 - ch6_5_roughness_iconicity.R
+- ch7_correlations.R
 
 Created Dec 11, 2015

@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## September 17, 2015
-## Analysis of iconicity and overall sensory experience ratings
+## Analysis for Ch. 6.3, '6.4. Testing the iconicity of sensory words'
 
 ##------------------------------------------------------------------
 ## Pre-processing:

@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## November 27, 2015
-## Hedonic dimension of roughness and smoothness analysis
+## Analysis for Ch. 5.2, 'Words for roughness/hardness'
 
 ##------------------------------------------------------------------
 ## Pre-processing:

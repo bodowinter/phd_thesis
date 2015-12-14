@@ -28,6 +28,10 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - wordnet_macmillan_senses.csv : sense counts from WordNet and MacMillan, used in Ch. 3 and 5
 - stadtlander_murdoch_2000.csv : roughness and hardness norms used in Ch. 5 and 6
 - stadtlander_murdoch_2000_COCA_context.csv : COCA adjective-noun pairs that have the Stadtlander words (Ch. 5)
+- juhasz_yap_2013_SER.csv : sensory experience ratings from Juhasz & Yap (2013) (Ch. 6)
+- all_words_OED_etymology.csv : OED etymologies (handcoded) for all words from Lynott & Connell (2009) (Ch. 6)
+- iconicity_ratings.csv : iconicity ratings co-collected with Lynn Perry, Marcus Perlman and Gary Lupyan (Ch. 6, 8)
+- phonesthemes_hutchins_1998.xlsx : hand-coded phonesthemes based on Hutchins (1998) appendix (Ch. 6)
 
 ### Script files:
 
@@ -40,5 +44,6 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ch4_3_emotional_contexts.R
 - ch4_4_emotional_context_variability.R
 - ch5_roughness_hedonics.R
+- ch6_3_sensory_iconicity.R
 
 Created Dec 11, 2015

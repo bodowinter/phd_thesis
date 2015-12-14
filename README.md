@@ -32,6 +32,7 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - all_words_OED_etymology.csv : OED etymologies (handcoded) for all words from Lynott & Connell (2009) (Ch. 6)
 - iconicity_ratings.csv : iconicity ratings co-collected with Lynn Perry, Marcus Perlman and Gary Lupyan (Ch. 6, 8)
 - phonesthemes_hutchins_1998.xlsx : hand-coded phonesthemes based on Hutchins (1998) appendix (Ch. 6)
+- ELP_pronunciations.csv : phonological codings from the English Lexicon Project (Ch. 6)
 
 ### Script files:
 
@@ -44,6 +45,7 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - ch4_3_emotional_contexts.R
 - ch4_4_emotional_context_variability.R
 - ch5_roughness_hedonics.R
-- ch6_3_sensory_iconicity.R
+- ch6_4_sensory_iconicity.R
+- ch6_5_roughness_iconicity.R
 
 Created Dec 11, 2015

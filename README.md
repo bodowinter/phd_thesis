@@ -27,7 +27,7 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - macmillan_taste_smell_words.csv : for discussion in Ch. 4.5, whether MacMillan lists a taste/smell word to be valenced
 - wordnet_macmillan_senses.csv : sense counts from WordNet and MacMillan, used in Ch. 3 and 5
 - stadtlander_murdoch_2000.csv : roughness and hardness norms used in Ch. 5 and 6
-- stadtlander_murdoch_2000_COCA_context.csv : COCA adjective-noun pairs that have the Stadtlander & Murdoch word (Ch. 5)
+- stadtlander_murdoch_2000_COCA_context.csv : COCA adjective-noun pairs that have the Stadtlander words (Ch. 5)
 
 ### Script files:
 

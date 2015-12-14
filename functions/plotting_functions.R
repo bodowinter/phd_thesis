@@ -135,7 +135,7 @@ lower_axis <- function(style = 'modality', lab = 'Modality', N = NULL, type = 3,
 	if (style == 'continuous') {
 		if (type == 1) {
 			axis(side = 1, cex.axis = 1.25, lwd.ticks = 2, font = 2, ...)
-			mtext(lab, side = 1, line = 3, font = 2, cex = 1.7)
+			mtext(lab, side = 1, line = 2.5, font = 2, cex = 2)
 			}
 		if (type == 5) {
 			axis(side = 1, cex.axis = 1.15, lwd.ticks = 2, font = 2, ...)

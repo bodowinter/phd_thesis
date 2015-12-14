@@ -1,6 +1,6 @@
 ## Bodo Winter
 ## September 25, 2015
-## Analysis for Ch. 6.5, 'Sound structure reflects tactile properties'
+## Analysis for Ch. 6.5, 'Sound structure maps onto tactile properties'
 
 ##------------------------------------------------------------------
 ## Pre-processing:
@@ -351,5 +351,239 @@ mtext(side = 1, text = 'Relative Importance',
 	line = 3, font = 2, cex = 1.5)
 mtext(side = 3, text = 'Hardness', line = 1, font = 2, cex = 1.8)
 box(lwd = 3)
+
+
+
+##------------------------------------------------------------------
+## Mixed model analysis of experiment:
+##------------------------------------------------------------------
+
+## Load in data:
+
+library(xlsx)
+r <- read.xlsx('nonword_study_batch1_rough_instructions.xlsx', 1, startRow = 2)
+s <- read.xlsx('nonword_study_batch2_smooth_instructions.xlsx', 1, startRow = 2)
+
+## Load in question column names:
+
+rcols <- colnames(read.xlsx('nonword_study_batch1_rough_instructions.xlsx', 1, startRow = 1))
+scols <- colnames(read.xlsx('nonword_study_batch2_smooth_instructions.xlsx', 1, startRow = 1))
+
+## Make those columns that have a 'Q' in them into the other dataset:
+
+colnames(r)[grep('Q', rcols)] <- rcols[grep('Q', rcols)]
+colnames(s)[grep('Q', scols)] <- scols[grep('Q', scols)]
+
+## Set up dataframe:
+
+library(reshape2)
+id_vars <- c('ResponseID', 'IPAddress', 'What.is.your.gender.', 'Please.enter.your.age.',
+	'What.is.your.native.language.')
+rmelt <- melt(r[,c(id_vars, paste0('Q', 1:60), 'Q122', 'Q124')],
+	id.vars = c(id_vars, 'Q122', 'Q124'))
+smelt <- melt(s[,c(id_vars, paste0('Q', 1:60), 'Q122', 'Q124')],
+	id.vars = c(id_vars, 'Q122', 'Q124'))
+
+## Arrange by response ID:
+
+rmelt <- arrange(rmelt, ResponseID)
+smelt <- arrange(smelt, ResponseID)
+
+## Add smooth instructions and rough instructions:
+
+rmelt$Condition <- 'rough'
+smelt$Condition <- 'smooth'
+
+## Combine:
+
+xdata <- rbind(rmelt, smelt)
+
+## Get rid of NAs:
+
+xdata <- na.omit(xdata)
+
+## Rename:
+
+xdata <- rename(xdata, Question = variable, Choice = value,
+	Gender = What.is.your.gender., Age = Please.enter.your.age.,
+	Language = What.is.your.native.language., LexAssociates1 = Q122,
+	LexAssociates2 = Q124)
+
+## Add list information:
+
+xdata$List <- NA
+xdata[xdata$Question %in% paste0('Q', 1:15),]$List <- 'List1'
+xdata[xdata$Question %in% paste0('Q', 16:30),]$List <- 'List2'
+xdata[xdata$Question %in% paste0('Q', 31:45),]$List <- 'List3'
+xdata[xdata$Question %in% paste0('Q', 46:60),]$List <- 'List4'
+
+## Check female/male and age:
+
+gen <- table(xdata$ResponseID, xdata$Gender)
+sum(gen[,1] != 0)	# 25
+sum(gen[,2] != 0)	# 35
+age <- aggregate(Age ~ ResponseID, xdata, mean)
+
+## Load in stimulus overview:
+
+stims <- read.csv('ch6_r_words_stimuli.csv')
+lists <- read.csv('ch6_experiment_list.csv')
+
+## Add the choice information into the dataset:
+
+xdata$ChoiceClass <- 'r'
+xdata[xdata$Choice %in% stims$br, ]$ChoiceClass <- 'br'
+xdata[xdata$Choice %in% stims$rc, ]$ChoiceClass <- 'rc'
+xdata[xdata$Choice %in% stims$son, ]$ChoiceClass <- 'son'
+xdata[xdata$Choice %in% stims$l, ]$ChoiceClass <- 'l'
+xdata[xdata$Choice %in% stims$none, ]$ChoiceClass <- 'none'
+
+## Loop through dataset and add the respective combination:
+
+xdata$List <- tolower(xdata$List)
+xdata$WordCombo <- ''
+xdata[xdata$Choice == 'psweth',]$Choice <- 'psewth'
+for (i in 1:nrow(xdata)) {
+	xsubset <- lists[lists$List == xdata[i,]$List,]
+	xdata[i,]$WordCombo <- xsubset[grep(xdata[i,]$Choice, xsubset$Word),]$Words
+	if(i %% 100 == 0) cat(paste0(i, '\n'))
+	}
+
+## Make the stims into long format:
+
+stims_long <- data.frame(Word = unlist(stims))
+stims_long$Type <- rep(c('r','br','rc','son','l','none'), each = 5)
+stims_long <- rbind(stims_long, data.frame(Word = 'prall', Type = 'br'))
+
+## Loop through dataset and do the specific classes:
+
+xdata$ComparisonClass <- ''
+xsplit <- strsplit(xdata$WordCombo, ':')
+for (i in 1:nrow(xdata)) {
+	xdata[i,]$ComparisonClass <- paste(stims_long[stims_long$Word == xsplit[[i]][1],]$Type,
+		stims_long[stims_long$Word == xsplit[[i]][2],]$Type, sep = ':')
+	if(i %% 100 == 0) cat(paste0(i, '\n'))
+	}
+
+## Combine classes:
+
+xdata$ComparisonClass2 <- xdata$ComparisonClass
+xdata[xdata$ComparisonClass == 'none:l',]$ComparisonClass2 <- 'l:none'
+xdata[xdata$ComparisonClass == 'none:son',]$ComparisonClass2 <- 'son:none'
+xdata[xdata$ComparisonClass == 'r:rc',]$ComparisonClass2 <- 'rc:r'
+xdata[xdata$ComparisonClass == 'br:rc',]$ComparisonClass2 <- 'rc:br'
+xdata[xdata$ComparisonClass == 'br:son',]$ComparisonClass2 <- 'son:br'
+xdata[xdata$ComparisonClass == 'rc:son',]$ComparisonClass2 <- 'son:rc'
+xdata[xdata$ComparisonClass == 'son:l',]$ComparisonClass2 <- 'l:son'
+xdata[xdata$ComparisonClass == 'br:l',]$ComparisonClass2 <- 'l:br'
+xdata[xdata$ComparisonClass == 'rc:l',]$ComparisonClass2 <- 'l:rc'
+xdata[xdata$ComparisonClass == 'r:br',]$ComparisonClass2 <- 'br:r'
+xdata[xdata$ComparisonClass == 'r:son',]$ComparisonClass2 <- 'son:r'
+xdata[xdata$ComparisonClass == 'br:none',]$ComparisonClass2 <- 'none:br'
+xdata[xdata$ComparisonClass == 'r:none',]$ComparisonClass2 <- 'none:r'
+xdata[xdata$ComparisonClass == 'rc:none',]$ComparisonClass2 <- 'none:rc'
+xdata[xdata$ComparisonClass == 'r:l',]$ComparisonClass2 <- 'l:r'
+
+## Change choice class of prall:
+
+xdata[xdata$Choice == 'prall',]$ChoiceClass <- 'br'
+xdata[xdata$Choice == 'psewth',]$ChoiceClass <- 'none'
+
+## Exclude non-native speakers:
+
+xdata <- xdata[xdata$Language != 'I grew up speaking a language different from English at home',]
+
+## How many?
+
+length(unique(xdata$ResponseID))
+
+## How many males / females?
+
+sum(t(table(xdata$Gender, xdata$ResponseID))[,1] != 0)	# female
+sum(t(table(xdata$Gender, xdata$ResponseID))[,2] != 0)	# male
+
+## Look at table:
+
+table(xdata$ChoiceClass, xdata$Condition)
+table(xdata$ComparisonClass2, xdata$ChoiceClass, xdata$Condition)	# this is used to construct the ranking
+
+table(xdata$ChoiceClass, xdata$Condition) / rowSums(table(xdata$ChoiceClass, xdata$Condition))
+
+## Make an 'r-word' table:
+
+xdata$RChoice <- 'no_r'
+xdata[xdata$ChoiceClass %in% c('r', 'rc', 'br'),]$RChoice <- 'r'
+
+## Model this:
+
+library(lme4)
+xdata$RChoice <- factor(xdata$RChoice)
+xdata$Condition <- factor(xdata$Condition, levels = c('smooth', 'rough'))
+xmdl <- glmer(RChoice ~ Condition +
+	(1 + Condition|ResponseID) +
+	(1 + Condition|Question),
+	data = xdata,
+	family = 'binomial', REML = F)
+xmdl.null <- glmer(RChoice ~ 1 +
+	(1 + Condition|ResponseID) +
+	(1 + Condition|Question),
+	data = xdata,
+	family = 'binomial', REML = F)
+anova(xmdl.null, xmdl, test = 'Chisq')
+summary(xmdl)
+
+## Make a plot of this:
+
+glmm.preds <- predict.glmm(xmdl, levels = levels(xdata$Condition),
+	pred = 'Condition', resp = 'RChoice')
+glmm.preds$fit <- plogis(glmm.preds$fit)
+glmm.preds$UB <- plogis(glmm.preds$UB)
+glmm.preds$LB <- plogis(glmm.preds$LB)
+
+## Make a plot (not reported in main body of text):
+
+setup_plots(N = 1)
+emptyplot(xlim = c(0.5,2.5), ylim = c(-0.1, 1.1))
+axis(side = 2, at = c(0,1), lwd = 2, font = 2, cex.axis = 1.5, las = 2, labels = c('0%','100%'))
+draw_preds(glmm.preds)
+mtext(side = 2, text = 'Chosen /r/ %', line = 2.6, font = 2, cex = 2)
+text(x = c(1.10, 2.10), y = glmm.preds$fit,
+	labels = paste0(round(glmm.preds$fit, 2) * 100, '%'),
+	font = 2)
+axis(side = 1, at = 1:2, labels = F, lwd.ticks = 2)
+axis(side = 1, at = 1:2, labels = c('Smooth\nInstructions', 'Rough\nInstructions'),
+	font = 2, cex.axis = 1.4, line = 1.2, tick = F)
+
+## Look at debriefing questions:
+
+xdata$LexAssociates1 <- tolower(xdata$LexAssociates1)
+xdata$LexAssociates2 <- tolower(xdata$LexAssociates2)
+length(unique(xdata$LexAssociates1))
+length(unique(xdata$LexAssociates2))
+length(grep('sharp', unique(xdata$LexAssociates1)))
+length(grep('rough', unique(xdata$LexAssociates1)))
+
+## Unpack assocaites of 'jagged, spiky, stubbly':
+
+all_associates1 <- unique(xdata$LexAssociates1)
+all_associates1[all_associates1 == 'sharp coarse rough'] <- 'sharp, coarse, rough'
+all_associates1 <- paste(unique(all_associates1), collapse = ',')
+all_associates1 <- gsub(' ', '', all_associates1)
+all_associates1 <- unique(unlist(strsplit(all_associates1, split = ',')))
+
+## Unpack assocaites of 'lubricated, greasy, feathered':
+
+all_associates2 <- unique(xdata$LexAssociates2)
+all_associates2[all_associates2 == 'slick lubricated slippery'] <- 'slick, lubricated, slippery'
+all_associates2 <- paste(all_associates2, collapse = ',')
+all_associates2 <- gsub(' ', '', all_associates2)
+all_associates2 <- unique(unlist(strsplit(all_associates2, split = ',')))
+
+## How many contain /r/>
+
+length(grep('r', all_associates1)) / length(all_associates1)
+length(grep('r', all_associates2)) / length(all_associates2)
+binom.test(c(length(grep('r', all_associates1)), length(grep('r', all_associates2))))
+
 
 

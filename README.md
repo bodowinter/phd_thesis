@@ -1,4 +1,4 @@
-Supplementary materials for 'The sensory structure of the English lexicon' (PhD thesis)
+Reproducible Analysis Scripts for 'The Sensory Structure of the English Lexicon' (PhD thesis)
 ---------------------
 
 ### Author:

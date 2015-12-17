@@ -8,7 +8,7 @@
 
 ## Load in data:
 
-setwd('/Users/teeniematlock/Desktop/sense_phd/data')
+setwd('/Users/teeniematlock/Desktop/sense_phd/analysis/data/')
 l <- read.csv('lynott_connell_2009_adj_norms.csv')
 n <- read.csv('lynott_connell_2013_noun_norms.csv')
 v <- read.csv('winter_2015_verb_norms.csv')

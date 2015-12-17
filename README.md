@@ -15,6 +15,7 @@ Supplementary materials for 'The sensory structure of the English lexicon' (PhD 
 - MRC.csv : word frequencies used in Ch. 3
 - SUBTLEX_US.csv : word frequencies used in Ch. 3, POS tags used in Ch. 5 and 6
 - google_ngram.csv : google ngram frequencies of Lynott & Connell (2009) adjs (Ch. 3.5)
+- COCA_adjectives_register.csv : adjective frequencies by register (reported in 3.4)
 - COCA_adj_frequencies.csv : frequency and contextual diversity from COCA (Ch. 3)
 - COCA_noun_frequencies.csv : frequency and contextual diversity from COCA (Ch. 3)
 - COCA_verb_frequencies.csv : frequency and contextual diversity from COCA (Ch. 3)

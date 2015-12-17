@@ -278,21 +278,62 @@ sfreq <- mutate(sfreq, Mapped = as.factor(Mapped))
 
 ## How does frequency affect this?
 
-summary(glm(Mapped ~ log10(BaseFreq), sfreq, family = 'binomial'))
+summary(xmdl.freq <- glm(Mapped ~ log10(BaseFreq), sfreq, family = 'binomial'))
 
 ## Are those words mapped overall more or less valenced?
 
-summary(glm(Mapped ~ AbsV + log10(BaseFreq), sfreq, family = 'binomial'))
+summary(xmdl.absv <- glm(Mapped ~ AbsV + log10(BaseFreq), sfreq, family = 'binomial'))
 summary(glm(Mapped ~ AbsSent + log10(BaseFreq), sfreq, family = 'binomial'))
 summary(glm(Mapped ~ ValMax + log10(BaseFreq), sfreq, family = 'binomial'))
 
 ## Are those words mapped overall more or less multimodal?
 
-summary(glm(Mapped ~ Exclusivity + log10(BaseFreq), sfreq, family = 'binomial'))
+summary(xmdl.excl <- glm(Mapped ~ Exclusivity + log10(BaseFreq), sfreq, family = 'binomial'))
 
 ## Are those words mapped overall more or less iconic?
 
-summary(glm(Mapped ~ Iconicity + log10(BaseFreq), sfreq, family = 'binomial'))
+summary(xmdl.icon <- glm(Mapped ~ Iconicity + log10(BaseFreq), sfreq, family = 'binomial'))
 
+## Get predictions of affect:
 
+summary(xmdl.affect <- glm(Mapped ~ AbsV, sfreq, family = 'binomial'))
+xpred <- data.frame(AbsV = seq(0, 2, 0.01))
+xpred <- cbind(xpred,
+	as.data.frame(predict(xmdl.affect, newdata = xpred, type = 'link', se.fit = T)[1:2]))
+xpred$UB <- plogis(xpred$fit + 1.96 * xpred$se.fit)
+xpred$LB <- plogis(xpred$fit - 1.96 * xpred$se.fit)
+xpred$fit <- plogis(xpred$fit)
+
+## Get predictions of iconicity:
+
+summary(xmdl.icon <- glm(Mapped ~ Iconicity, sfreq, family = 'binomial'))
+xpred.icon <- data.frame(Iconicity = seq(-2.5, 4.5, 0.01))
+xpred.icon <- cbind(xpred.icon,
+	as.data.frame(predict(xmdl.icon, newdata = xpred.icon, type = 'link', se.fit = T)[1:2]))
+xpred.icon$UB <- plogis(xpred.icon$fit + 1.96 * xpred.icon$se.fit)
+xpred.icon$LB <- plogis(xpred.icon$fit - 1.96 * xpred.icon$se.fit)
+xpred.icon$fit <- plogis(xpred.icon$fit)
+
+## Plot affect and iconicity together:
+
+set.seed(42)
+quartz('', 11, 5)
+par(mfrow = c(1, 2), omi = c(1, 1.35, 0.85, 0.25), mai = c(0, 0.25, 0, 0))
+emptyplot(xlim = c(0.5, 1.5), ylim = c(-0.1, 1.1))
+points(sfreq$AbsV, jitter(as.numeric(sfreq$Mapped) - 1, 0.2), col = rgb(0, 0, 0, 0.4), pch = 19)
+polygon(x = c(xpred$AbsV, rev(xpred$AbsV)),
+	y = c(xpred$UB, rev(xpred$LB)), border = F, col = rgb(0, 0, 0, 0.4))
+points(xpred$AbsV, xpred$fit, lwd = 3, type = 'l')
+abline(h = c(0, 1), lwd = 2, lty = 2)
+axis(side = 2, at = c(0, 1), las = 2, font = 2, labels = c('Not mapped', 'Mapped'), cex.axis = 1.25)
+axis(side = 1, cex.axis = 1.25, lwd.ticks = 2, font = 2, at = seq(0, 2, 0.5))
+mtext('Absolute Valence', side = 1, line = 3, font = 2, cex = 1.6)
+emptyplot(xlim = c(-2.5, 5), ylim = c(-0.1, 1.1))
+points(sfreq$Iconicity, jitter(as.numeric(sfreq$Mapped) - 1, 0.2), col = rgb(0, 0, 0, 0.4), pch = 19)
+polygon(x = c(xpred.icon$Iconicity, rev(xpred.icon$Iconicity)),
+	y = c(xpred.icon$UB, rev(xpred.icon$LB)), border = F, col = rgb(0, 0, 0, 0.4))
+points(xpred.icon$Iconicity, xpred.icon$fit, lwd = 3, type = 'l')
+abline(h = c(0, 1), lwd = 2, lty = 2)
+axis(side = 1, cex.axis = 1.25, lwd.ticks = 2, font = 2, at = seq(-2.5, 5, 2.5))
+mtext('Iconicity', side = 1, line = 3, font = 2, cex = 1.6)
 

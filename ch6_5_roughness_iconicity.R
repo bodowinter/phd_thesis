@@ -200,6 +200,27 @@ hard$HardCat <- as.factor(hard$HardCat)
 
 
 ##------------------------------------------------------------------
+## Chi-square tests of the roughness association:
+##------------------------------------------------------------------
+
+## The one word that has two r's, make it into one:
+
+rough[rough$r == 2,]$r <- 1
+hard[hard$r == 2,]$r <- 1
+
+## Create tables:
+
+(rough_tab <- table(rough$RoughCat, rough$r))
+(hard_tab <- table(hard$RoughCat, hard$r))
+
+## Chi-square tests:
+
+chisq.test(rough_tab)
+chisq.test(hard_tab)
+
+
+
+##------------------------------------------------------------------
 ## Random forests preparation: Predictor formulas and helper function:
 ##------------------------------------------------------------------
 

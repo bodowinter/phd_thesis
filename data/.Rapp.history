@@ -1,51 +1,961 @@
-paste0(paste0(paste0(this_word, '$'), paste0(this_word, ' ')), sep = '|')
-paste0(c(paste0(paste0(this_word, '$'), paste0(this_word, ' '))), sep = '|')
-paste0(this_word, '$')
-paste0(this_word, ' ')
-paste0(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
-paste0(this_word, ' ')
-paste0(this_word, '$')
-paste0(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
-paste0(paste0(this_word, '$'), paste0(this_word, ' '), collapse = '|')
-paste0(paste0(this_word, '$'), paste0(this_word, ' '), sep = '\\|')
-paste0('A', 'B', sep = '|')
-paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
-this_word <- xall[i,]$Word#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')
-these_sent <- grep(this_regex, sent$SynsetTerms)
-these_sent
-sent[these_sent,]
-this_word <- 'faint'
-this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)
-sent[these_sent,]
-this_word <- all_nouns[i,]$Noun#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)
-this_word <- 'rancid'
-this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)
-this_regex
-sent[these_sent,]
-this_word <- 'pungent'
-this_word <- xall[i,]$Word#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)
-sent[these_sent,]
-this_word
-this_word <- 'pungent'
-this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)
-sent[these_sent,]
-this_word <- 'reeking'
-this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)
-sent[these_sent,]
-xall[xall$Word == 'rancid',]
-mean(c(0.375, 0.625))
+quartz("",8,6)#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6)#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)
+quartz("",8,6)#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)
+quartz("",8,6)#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=3,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=2,at=1.5,labels="accounting for\nindependence",font=2,cex.axis=1.25,lwd=NA)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=2,at=1.5,labels="accounting for\nindependence",font=2,cex.axis=1.25)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=2,at=1.5,labels="accounting for\nindependence",cex.axis=1.25)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=1,at=1.5,labels="accounting for\nindependence",cex.axis=1.25)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=1,at=1.5,labels="accounting for\nindependence",cex.axis=1.25,line=2,font=2)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=1,at=1.5,labels="accounting for\nindependence",cex.axis=1.25,line=2,font=2,tick=FALS)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=1,at=1.5,labels="accounting for\nindependence",cex.axis=1.25,line=2,font=2,tick=FALSE)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=1,at=1.5,labels="accounting for\nindependence",cex.axis=1.25,line=0.5,font=2,tick=FALSE)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=1,at=1.5,labels="accounting for\nindependence",cex.axis=1.25,line=0.5,font=2,tick=FALSE)#
+axis(side=1,at=1.5,labels="ignoring\nindependence",cex.axis=1.25,line=0.5,font=2,tick=FALSE)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=1,at=1.5,labels="accounting for\nindependence",cex.axis=1.25,line=0.5,font=2,tick=FALSE)#
+rect(xleft=2.25,xright=3.25,ybottom=0,ytop=sum(allres.ignore<0.05)/nsim,#
+	col="darkred",border=NA)#
+axis(side=1,at=2.75,labels="ignoring\nindependence",cex.axis=1.25,line=0.5,font=2,tick=FALSE)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)
+quartz("",8,6);par(mai=c(1,1.5,1.5,0.5))#
+plot(1,1,xlim=c(0.5,5),ylim=c(0,1),#
+	xlab="",ylab="",xaxt="n",yaxt="n",type="n",bty="n",xaxs="i",yaxs="i")#
+axis(side=2,at=seq(0,1,0.25),las=2,font=2,cex.axis=1.25,lwd=3)#
+mtext(side=2,text="Type I error rate",line=4,font=2,cex=2)#
+rect(xleft=1,xright=2,ybottom=0,ytop=sum(allres.items<0.05)/nsim,#
+	col="goldenrod3",border=NA)#
+axis(side=1,at=1.5,labels="accounting for\nindependence",cex.axis=1.25,line=0.5,font=2,tick=FALSE)
+36/3
+36/2
+124/139
+0.95^20
+1-0.36
+0.05/20
+pplot = function(myxlim,myylim,#
+	xlabel,ylabel,#
+	myxaxis,myyaxis,axes=T,...){#
+	quartz("",9,7);par(mai=c(1.5,1.5,1.5,0.8))#
+	plot(1,1,type="n",xlab="",ylab="",#
+		xaxt="n",yaxt="n",#
+		bty="n",#
+		xlim=myxlim,ylim=myylim,...)#
+	box(lwd=4)#
+	if(axes){#
+		axis(1,at=myxaxis,font=2,lwd=4,lwd.ticks=4,cex.axis=1.75)#
+		axis(2,at=myyaxis,font=2,lwd=4,lwd.ticks=4,las=2,cex.axis=1.75)#
+		}#
+	mtext(text=xlabel,side=1,line=4.5,font=2,cex=2.25)#
+	mtext(text=ylabel,side=2,line=4.5,font=2,cex=2.25)#
+	}#
+#
+## Generate data:#
+set.seed(42)#
+x = rep(1:16,each=3)#
+x = x[x!=10]#
+y = 350+6*x+rnorm(length(x),sd=15)#
+# plot(x,y)
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")#
+points(x,y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")#
+points(x,y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+#
+## Slide 2:#
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")#
+abline(lm(y~x),lwd=6,col="black")#
+points(x,y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+xmdl = lm(y~x)#
+SSR=round(sum(residuals(xmdl)^2))#
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")#
+text(x=16,y=480,cex=2.5,font=2,adj=c(1,NA),#
+	labels=expression(SS[R]==12598))#
+segments(x0=x,y0=fitted(xmdl),y1=fitted(xmdl)+residuals(xmdl),lwd=4,col="darkred")#
+abline(lm(y~x),lwd=6,col="black")#
+points(x,y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+####### HYPOTHESIS TESTING LINES:#
+#
+## slope null hypothesis#
+xmdl = lm(y~x)#
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")#
+abline(a=mean(y),b=0,lty=2,col="darkred",lwd=4)#
+abline(lm(y~x),lwd=6,col="black")#
+points(x,y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+box(lwd=4)
+xmdl = lm(y~x)#
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")#
+abline(a=mean(y),b=0,lty=2,col="darkred",lwd=4)#
+abline(lm(y~x),lwd=6,col="black")
+xmdl = lm(y~x)#
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")
+abline(lm(y~x),lwd=6,col="black")#
+points(x,y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+box(lwd=4)
+xmdl = lm(y~x)#
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")#
+abline(a=mean(y),b=0,lty=2,col="darkred",lwd=4)#
+abline(lm(y~x),lwd=6,col="black")#
+points(x,y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+box(lwd=4)
+0.95^100
+1-(0.95^100)
+0.05^100
+1-(0.05^100)
+xmdl = lm(y~x)#
+pplot(c(-1,17),c(300,500),"Noise (dB)","Response time (ms)",seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")#
+abline(a=mean(y),b=0,lty=2,col="darkred",lwd=4)#
+abline(lm(y~x),lwd=6,col="black")#
+points(x,y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+box(lwd=4)
+pplot(c(0,1),c(0,9),"Humidity\n(arbitrary measure)","Number of tones",#
+	seq(0,16,4),seq(300,500,100),#
+	xaxs="i",yaxs="i")
+pplot(c(0,1),c(0,9),"Humidity\n(arbitrary measure)","Number of tones",#
+	seq(0,1,0.1),seq(0,9,1),#
+	xaxs="i",yaxs="i")
+pplot(c(0,1),c(0,9),"Humidity","Number of tones",#
+	seq(0,1,0.1),seq(0,9,1),#
+	xaxs="i",yaxs="i")
+pplot(c(0,1),c(0,9),"Humidity","Number of tones",#
+	seq(0,1,0.25),seq(0,9,3),#
+	xaxs="i",yaxs="i")
+## Slide 2:#
+pplot(c(0,1),c(0,9),"Humidity","Number of tones",#
+	seq(0,1,0.25),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.2)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.2)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+pplot(c(-1,1),c(0,9),"Humidity","Number of tones",#
+	seq(0,1,0.25),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.2)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.2)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+pplot(c(0,1),c(-1,9),"Humidity","Number of tones",#
+	seq(0,1,0.25),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.2)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.2)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+pplot(c(0,1),c(-1,10),"Humidity","Number of tones",#
+	seq(0,1,0.25),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.2)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.2)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+pplot(c(0,1),c(-1,10),"Humidity","Number of tones",#
+	seq(0,1,0.25),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+pplot(c(0,1),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)
+colorS()
+## Slide 2:#
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="wheat3",cex=2,col="black",lwd=1)#
+poi
+## Slide 2:#
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="wheat3",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="darkolivegren3",cex=2,col="black",lwd=1)
+## Slide 2:#
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="wheat3",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="darkolivegreen3",cex=2,col="black",lwd=1)
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="brown3",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="darkolivegreen4",cex=2,col="black",lwd=1)
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="brown3",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="chartreuse3",cex=2,col="black",lwd=1)
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="brown3",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="chartreuse4",cex=2,col="black",lwd=1)
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="chocolate2",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="cadetblue3",cex=2,col="black",lwd=1)
+## Slide 2:#
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="chocolate2",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="cadetblue4",cex=2,col="black",lwd=1)
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="chocolate2",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="aquamarine3",cex=2,col="black",lwd=1)
+## Slide 2:#
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="chocolate2",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="aquamarine4",cex=2,col="black",lwd=1)
+## Slide 2:#
+pplot(c(0,0.8),c(-1,10),"Humidity","Number of tones",#
+	seq(0,0.8,0.2),seq(0,9,3),#
+	xaxs="i",yaxs="i")#
+set.seed(42)#
+x1 = rnorm(20,mean=0.3,sd=0.1)#
+y1 = sample(0:3,length(x1),replace=T)#
+x2 = rnorm(20,mean=0.6,sd=0.1)#
+y2 = sample(2:9,length(x1),replace=T)#
+both_x <- c(x1,x2)#
+both_y <- c(y1,y2)#
+# points(both_x,both_y,pch=21,bg="goldenrod3",cex=2,col="black",lwd=1)#
+points(x1,y1,pch=21,bg="chocolate2",cex=2,col="black",lwd=1)#
+points(x2,y2,pch=21,bg="aquamarine3",cex=2,col="black",lwd=1)
+set.seed(42)
+group1 <- rnorm(50,mean=0)
+group2 <- rnorm(50,mean=0)
+group2
+set.seed(42)#
+group1 <- rnorm(50,mean=0)#
+group2 <- rnorm(50,mean=0)#
+t.test(group1,group2)
+group1 <- rnorm(50,mean=0)#
+group2 <- rnorm(50,mean=0)#
+t.test(group1,group2)
+install.packages("itsadug")
+library(RCurl)
+foo <- getURL("https://archive.org/details/tv?q=%22tiny%20number%22&output=json")
+foo
+library(jsonlite)
+bar <- fromJSON(foo)
+bar
+head(bar)
+bar$video
+all_links <- bar$video
+all_links[sample(1:33,10)]
+library(ngramr)#
+german_words = ngram(c("tier","vogel"),#
+	corpus="ger_2012")
+german_words
+german_words$Year
+binom.test(c(7,0))
+set.seed(2)
+x = rnorm(50)#
+y = 3*x + rnorm(50)#
+summary(lm(y~x))
+x[50]
+x[50] = -2
+set.seed(2)
+x = rnorm(50)#
+y = 3*x + rnorm(50)#
+summary(lm(y~x))
+x2 = x
+x[50] = -2
+plot(x,x2)
+summary(lm(y ~ x + x2))
+library(RCurl)
+foo <- getURL("https://archive.org/details/tv?q=july%204th&output=json")
+foo
+library(jsonlite)
+bar <- fromJSON(foo)
+head(bar)
+bar$video
+colnames(bar)
+bar$snip
+set.seed(2)
+x = rnorm(50)
+y = 3*x + rnorm(50)
+plo(x,y)
+plot(x,y)
+summary(lm(y~x))
+x2 = x
+x2
+x2[50] = -2
+plot(x,x2)
+summary(lm(y~x+x2))
+7020550/10010275
+10010275/7020550
+10010275/(10010275+7020550)
+8000000/(66837600+8000000)
+320000/(392500+320000)
+4/11
+5/13
+5/17
+4/11
+chisq.test(c(15,35))
+binom.test(c(15,35))
+4*2750
+den <- c('+obj','+obl','','','+pl')#
+dem <- c('+obj','+obl','','-fem','')
+den
+dem
+den <- c('+obj','+obl','','','+pl')#
+dem <- c('+obj','+obl','','-fem','')#
+des <- c('','+obl','','-fem','')
+intersect(den,dem)
+union(den,dem)
+setdiff(den,dem)
+setdiff(dem,des)
+den <- c('+obj','+obl',NA,NA,'+pl')#
+dem <- c('+obj','+obl',NA,'-fem',NA)#
+des <- c(NA,'+obl',NA,'-fem',NA)#
+#
+setdiff(den,dem)#
+setdiff(dem,des)
+setdiff(dem,des)
+x <- c(-0.144, -0.216, -0.117, -0.139, -0.198, -0.108, -0.145, -0.149, -0.147)
+x
+x1 <- c(-0.144, -0.216, -0.117, -0.139, -0.198, -0.108, -0.145, -0.149, -0.147)#
+x2 <- c(-0.115, -0.122, -0.033, -0.103, -0.108, -0.085)
+t.test(x1,x2,paired=F)
+x1 <- c(-0.144, -0.216, -0.117, -0.139, -0.198, -0.108, -0.145, -0.149, -0.147)#
+x2 <- c(-0.115, -0.122, -0.033, -0.103, -0.108, -0.085)#
+t.test(x1,x2,paired=F,var.equal=T)
+(3*60) + 30 + 50 + 60 + 30 + 5 + 60 + 60 + 30 + 20 + 2*60 + 45
+((3*60) + 30 + 50 + 60 + 30 + 5 + 60 + 60 + 30 + 20 + 2*60 + 45)/60
+lm(rnorm(50) ~ rnorm(50))
+x = rnorm(50)#
+y = 3 * x + rnorm(50)#
+xmdl <- lm(y ~ x)#
+str(xmdl)
+xmdl$model$x
+xmdl$r.squared
+xtest = t.test(rnorm(50), rnorm(50))#
+str(xtest)
+xtest
+mynames = factor(c('andy', 'bodo', 'andy'))
+mynames
+mynames <- factor(c('andy', 'bodo', 'andy'))#
+mynames[2] <- NA
+mynames
+mynames <- factor(c('andy', 'bodo', 'andy'))#
+levels(mynames)#
+mynames[2] <- NA#
+levels(mynames)#
+mynames <- factor(mynames)
+levels(mynames)
 ## Bodo Winter#
-## September 17, 2015#
-## Analysis for Ch. 3.2, 'Characterizing the odor and taste lexicon'#
+## June 7, 2015#
+## Generating data for change analysis paper#
+#
+#########################################################################
+######################## Figure 1a and Figure 1b:#
+#########################################################################
+#
+## Generate data for simple linear regression:#
+#
+set.seed(53)#
+t = 1:10#
+y = 0.63*t + rnorm(length(t),sd=1.5) + 1.5#
+#
+## Generate data structure for mixed model:#
+#
+nchain = 6#
+xdf = data.frame(t=rep(t,nchain))#
+xdf$chain = gl(nchain,length(t))#
+#
+## Generate data:#
+#
+set.seed(63)#
+xdf$y = 2.5									# grand mean#
+xdf$y = xdf$y+rnorm(nchain,sd=0.5)[xdf$chain]		# random intercepts#
+xdf$y = xdf$y+(0.83+rnorm(nchain,sd=1.5)[xdf$chain])*xdf$t		# random slopes#
+xdf$y = abs(xdf$y+rnorm(nrow(xdf)))		# random error and constrain to positive#
+xdf$y = xdf$y*0.5						# so that it fits into the range 1-10#
+plot(t,y,xlim=c(0,10),ylim=c(0,10),type="n")			# test#
+for(i in 1:nchain){#
+	points(1:length(t),xdf[xdf$chain == i,]$y,type="b")#
+	}
+library(lme4)#
+xmdl = lmer(y ~ t + (1+t|chain),xdf)#
+#
+## The actual plot:#
+#
+quartz("",11,5);par(mfrow=c(1,2),omi=c(0.75,1.25,0.5,0),mai=c(0.25,0.25,0.25,0.25))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)#
+## Plot 2#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+for(i in 1:nchain){#
+	abline(a=coef(xmdl)$chain[i,1],b=coef(xmdl)$chain[i,2],col="darkgray",lwd=3)#
+	}#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+abline(a=fixef(xmdl)[1],b=fixef(xmdl)[2],lwd=4)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("Multiple chains",side=3,line=0.8,cex=2.25,font=2)#
+text(1.1,9.75,labels="(b)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 6)#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 6); par(mai = c(1, 1.5, 0.5, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 9, 5); par(mai = c(1, 1.5, 0.5, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.5, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+# text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+axis(side=1,at=0:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+# text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+axis(side=1,at=0:10,labels=0:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+# text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+axis(side=1,at=0:10,labels=0:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(v = 0, lwd = 2, lty = 2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+# text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+for(i in 1:nchain){#
+	abline(a=coef(xmdl)$chain[i,1],b=coef(xmdl)$chain[i,2],col="darkgray",lwd=3)#
+	}#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+abline(a=fixef(xmdl)[1],b=fixef(xmdl)[2],lwd=4)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("Multiple chains",side=3,line=0.8,cex=2.25,font=2)#
+# text(1.1,9.75,labels="(b)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(0.5,10.5),xaxs="i")#
+for(i in 1:nchain){#
+	abline(a=coef(xmdl)$chain[i,1],b=coef(xmdl)$chain[i,2],col="darkgray",lwd=3)#
+	}#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+axis(side=1,at=1:10,labels=1:10,font=2,cex.axis=1.25,lwd=2)#
+abline(a=fixef(xmdl)[1],b=fixef(xmdl)[2],lwd=4)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("Multiple chains",side=3,line=0.8,cex=2.25,font=2)#
+# text(1.1,9.75,labels="(b)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+for(i in 1:nchain){#
+	abline(a=coef(xmdl)$chain[i,1],b=coef(xmdl)$chain[i,2],col="darkgray",lwd=3)#
+	}#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+axis(side=1,at=0:10,labels=0:10,font=2,cex.axis=1.25,lwd=2)#
+abline(a=fixef(xmdl)[1],b=fixef(xmdl)[2],lwd=4)#
+abline(v = 0, lwd = 2, lty = 2)#
+mtext("Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("Multiple chains",side=3,line=0.8,cex=2.25,font=2)#
+# text(1.1,9.75,labels="(b)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+for(i in 1:nchain){#
+	abline(a=coef(xmdl)$chain[i,1],b=coef(xmdl)$chain[i,2],col="darkgray",lwd=3)#
+	}#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+axis(side=1,at=0:10,labels=0:10,font=2,cex.axis=1.25,lwd=2)#
+abline(a=fixef(xmdl)[1],b=fixef(xmdl)[2],lwd=4)#
+abline(v = 0, lwd = 2, lty = 2)#
+mtext("Time",side=1,line=3,cex=1.8,font=2)#
+mtext("Multiple chains",side=3,line=0.8,cex=2.25,font=2)#
+# text(1.1,9.75,labels="(b)",font=2,cex=1.5)#
+box(lwd=2)
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+for(i in 1:nchain){#
+	abline(a=coef(xmdl)$chain[i,1],b=coef(xmdl)$chain[i,2],col="darkgray",lwd=3)#
+	}#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+axis(side=1,at=0:10,labels=0:10,font=2,cex.axis=1.25,lwd=2)#
+abline(a=fixef(xmdl)[1],b=fixef(xmdl)[2],lwd=4)#
+abline(v = 0, lwd = 2, lty = 2)#
+mtext("Time / Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("Multiple chains",side=3,line=0.8,cex=2.25,font=2)#
+# text(1.1,9.75,labels="(b)",font=2,cex=1.5)#
+box(lwd=2)
+# quartz("",11,5);par(mfrow=c(1,2),omi=c(0.75,1.25,0.5,0),mai=c(0.25,0.25,0.25,0.25))#
+quartz('', 8, 5.5); par(mai = c(1, 1.5, 0.75, 0.5))#
+plot(t,y,ylim=c(0,10),xlab="",ylab="",xaxt="n",yaxt="n",type="n",xlim=c(-0.5,10.5),xaxs="i")#
+axis(side=1,at=0:10,labels=0:10,font=2,cex.axis=1.25,lwd=2)#
+axis(side=2,at=seq(0,10,2.5),las=2,font=2,cex.axis=1.25,lwd=2)#
+mtext("Compositionality",side=2,line=3.5,cex=1.8,font=2)#
+mtext("Time / Generation",side=1,line=3,cex=1.8,font=2)#
+mtext("One chain",side=3,line=0.8,cex=2.25,font=2)#
+abline(v = 0, lwd = 2, lty = 2)#
+abline(lm(y~t),lwd=4)#
+points(t,y,type="b",lwd=2,pch=22,bg="gray",cex=1.25)#
+# text(1.1,9.75,labels="(a)",font=2,cex=1.5)#
+box(lwd=2)
+library(mgcv)
+citation("mgcv")
+binom.test(c(7,1))
+# Load lme4 library#
+library(lme4)#
+# Import file "politeness"#
+politeness=read.csv("http://www.bodowinter.com/tutorial/politeness_data.csv")#
+head(politeness)#
+tail(politeness)#
+summary(politeness)#
+str(politeness)#
+colnames(politeness)#
+which(is.na(politeness$frequency))#
+which(!complete.cases(politeness))#
+boxplot(frequency ~ attitude*gender, col=c("white","lightgray"), politeness)#
+# Construction of LMM#
+politeness.model = lmer(frequency ~ attitude +  (1|subject) + (1|scenario), data=politeness)
+install.packages("lme4")
+library(lme4)
+citation('lme4')
+1672/7000
+1672/6000
+365-306
+365-142
+365-124
+365-231
+365-259
+as.Date('21/02/14', '%d/%m/%y')
+as.Date('18/04/14', '%d/%m/%y')
+as.Date('18/04/14', '%d/%m/%y') - as.Date('21/02/14', '%d/%m/%y')
+as.Date('06/07/14', '%d/%m/%y') - as.Date('13/07/14', '%d/%m/%y')
+as.Date('15/12/14', '%d/%m/%y') - as.Date('23/08/14', '%d/%m/%y')
+114+7+56
+365-177
+as.Date('04/02/15', '%d/%m/%y') - as.Date('27/07/15', '%d/%m/%y')
+1/3 * 177
+259 * 1/6
+173+59+43
+library(ggplot2)
+?geom_smooth
+library(lavaan)
+300/20
+6*9
+6*10
+5.85*0.2
+x <- scan()
+x
+table(x)
+55000/12
+3500*12
+20+30+10+5+10+25
+20+30+15+5+10+20
+20+30+15+10+5+10+20
+20+30+5+5+5+10+10+5+10
+15+25+5+5+5+10+10+10+5+10
+20/7
+30*6
+10*1.41
+171.99 * 1.41
+14.10+242.51+29.80+25
+9*0.3
+(9*0.3)*30
+(9*1.5)*30
+(9*10)*30
+(9*1)*30
+(9*1)*30*1.2
+400 / 30 / 9
+1 * 30 * 9
+1.1 * 30 * 9
+1.2 * 30 * 9
+1.15 * 30 * 9
+1.12 * 30 * 9
+1.11 * 30 * 9
+1.115 * 30 * 9
+1.11 * 30 * 9
+1.117 * 30 * 9
+1.116 * 30 * 9
+1.115 * 30 * 9
+1.112 * 30 * 9
+1.111 * 30 * 9
+1.1121 * 30 * 9
+1.112 * 30 * 9
+1.1102 * 30 * 9
+1.1142 * 30 * 9
+1.1132 * 30 * 9
+1.1112 * 30 * 9
+1.11 * 30 * 9
+## Bodo Winter#
+## September 17, 2015; New approach October 15, 2015#
+## Analysis for Ch. 3.5, 'Word frequency asymmetries'#
 #
 ##------------------------------------------------------------------#
 ## Pre-processing:#
@@ -58,15 +968,20 @@ options(stringsAsFactors = F)#
 ## Load in packages:#
 #
 library(dplyr)#
+library(reshape2)#
+library(lme4)#
+library(MASS)#
+library(pscl)#
+library(glmmADMB)#
 #
 ## Define path to parent directory:#
 #
 mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis/'#
 #
-## Load in plotting functions:#
+## Load in functions:#
 #
-source(file.path(mainPath, 'functions/plotting_functions.R'))#
 source(file.path(mainPath, 'functions/model_prediction_functions.R'))#
+source(file.path(mainPath, 'functions/plotting_functions.R'))#
 #
 ## Load in modality norms:#
 #
@@ -82,2108 +997,94 @@ l$DominantModality <- factor(l$DominantModality, levels = modalities)#
 n$DominantModality <- factor(n$DominantModality, levels = modalities)#
 v$DominantModality <- factor(v$DominantModality, levels = modalities)#
 #
-## Extract random subset from the verbs:#
-#
-v <- filter(v, RandomSet == 'yes')#
-#
-## Combine all:#
-#
-xall <- rbind(dplyr::select(l, Word, DominantModality),#
-	dplyr::select(n, Word, DominantModality),#
-	dplyr::select(v, Word, DominantModality))#
-##------------------------------------------------------------------#
-## Load in Warriner et al. (2013) norms:#
-##------------------------------------------------------------------#
-#
 ## Load in other datasets used in this particular analysis:#
 #
-aff <- read.csv('warriner_2013_affective_norms.csv')#
+verbs <- read.csv('COCA_verb_frequencies.csv')#
+nouns <- read.csv('COCA_noun_frequencies.csv')#
+adjs <- read.csv('COCA_adj_frequencies.csv')#
 #
-## Compute absolute valence score:#
+## Merge COCA frequency data into l, d and n:#
 #
-aff <- mutate(aff, AbsV = abs(Val - mean(Val)))#
+l <- cbind(l, adjs[match(l$Word, adjs$Word), -1])#
+n <- cbind(n, nouns[match(n$Word, nouns$Word), -1])#
+v <- cbind(v, verbs[match(v$Word, verbs$Word), -1])#
 #
-## Merge valence into xall:#
+## For how many was there no frequency data?#
 #
-xall$Valence <- aff[match(xall$Word, aff$Word),]$Val#
-xall$AbsV <- aff[match(xall$Word, aff$Word),]$AbsV#
+sum(is.na(l$Freq))#
+sum(is.na(n$Freq))#
+sum(is.na(v$Freq))#
 #
-## Check overlap:#
+## Make those that are NA into 0 (since it is not attested):#
 #
-sum(!is.na(xall$Valence)) / nrow(xall)#
+l[is.na(l$Freq), c('Freq', 'CD')] <- 0#
+n[is.na(n$Freq), c('Freq', 'CD')] <- 0#
+v[is.na(v$Freq), c('Freq', 'CD')] <- 0#
 #
-## Merge POS into there:#
+## Create a data frame from the random subset:#
 #
-xall$POS <- c(rep('adj', nrow(l)), rep('noun', nrow(n)),#
-	rep('verb', nrow(v)))#
+vrand <- filter(v, RandomSet == 'yes')#
 ##------------------------------------------------------------------#
-## NRC Hashtag Emotion lexicon:#
-##------------------------------------------------------------------#
-#
-## Load in NRC Hashtag data:#
-#
-hash <- read.csv('NRC_hashtag_unigrams-pmilexicon.txt', sep = '\t', header = F)#
-#
-## Colnames:#
-#
-hash <- rename(hash, Word = V1, SentimentScore = V2, NumPos = V3, NumNeg = V4)#
-#
-## Create absolute valence score:#
-#
-hash <- mutate(hash, AbsSent = abs(SentimentScore - mean(SentimentScore, na.rm = T)))#
-#
-## Merge:#
-#
-xall$Sent <- hash[match(xall$Word, hash$Word), ]$SentimentScore#
-xall$AbsSent <- hash[match(xall$Word, hash$Word), ]$AbsSent#
-#
-## Check overlap:#
-#
-sum(!is.na(xall$Sent)) / nrow(xall)	# 85%#
-##------------------------------------------------------------------#
-## Senti Wordnet analysis & Lynott & Connell (2009):#
+## Simple average frequency analysis:#
 ##------------------------------------------------------------------#
 #
-## Load in Senti Wordnet:#
+## Take aggregate:#
 #
-sent <- read.csv('sentiwordnet_3.0.csv')#
+xagr <- rbind(dplyr::select(l, Word, DominantModality, VisualStrengthMean:OlfactoryStrengthMean,#
+	ModalityExclusivity, Freq:CD),#
+	dplyr::select(n, Word, DominantModality, VisualStrengthMean:OlfactoryStrengthMean,#
+	ModalityExclusivity, Freq:CD),#
+	dplyr::select(v, Word, DominantModality, VisualStrengthMean:OlfactoryStrengthMean,#
+	ModalityExclusivity, Freq:CD))#
+xagr.rand <- rbind(dplyr::select(l, Word, DominantModality, VisualStrengthMean:OlfactoryStrengthMean,#
+	ModalityExclusivity, Freq:CD),#
+	dplyr::select(n, Word, DominantModality, VisualStrengthMean:OlfactoryStrengthMean,#
+	ModalityExclusivity, Freq:CD),#
+	dplyr::select(vrand, Word, DominantModality, VisualStrengthMean:OlfactoryStrengthMean,#
+	ModalityExclusivity, Freq:CD))#
 #
-## Loop through each Lynott and Connell (2009) term and retrieve the corresponding senti wordnet entries:#
+## Add POS column to both datasets:#
 #
-xall$PosScore <- NA#
-xall$NegScore <- NA#
-xall$PosScoreSD <- NA#
-xall$NegScoreSD <- NA#
-for (i in 1:nrow(xall)) {#
-	this_word <- xall[i,]$Word#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)#
-	if (length(these_sent) > 0) {#
-		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])#
-		sds <- apply(sent[these_sent,c('PosScore', 'NegScore')], 2, sd)#
-		xall[i,]$PosScore <- means[1]#
-		xall[i,]$NegScore <- means[2]#
+xagr$POS <- c(rep('adj', nrow(l)), rep('noun', nrow(n)), rep('verb', nrow(v)))#
+xagr.rand$POS <- c(rep('adj', nrow(l)), rep('noun', nrow(n)), rep('verb', nrow(vrand)))#
 #
-		}#
+## Make a model of just the random subset data with just modality:#
 #
-	if (i %% 100 == 0) {#
-		cat(paste0(i, '\n'))#
-		}#
-	}
-xall[xall$Word ==
-xall[xall$Word == 'rancid',]
-sum(is.na(xall$PosScore))#
-1 - (sum(is.na(xall$PosScore)) / nrow(l))	# 76%#
+summary(xmdl.rand <- glm.nb(Freq ~ DominantModality, xagr.rand))#
+summary(xmdl.rand.null <- glm.nb(Freq ~ 1, xagr.rand))#
 #
-## Compute valence measures:#
+## Likelihood ratio test:#
 #
-xall <- mutate(xall, PosDiff = PosScore - NegScore)#
-xall$ValMax <- apply(xall[,c('PosScore', 'NegScore')], 1, max)#
-##------------------------------------------------------------------#
-## Analysis of Warriner et al. (2013) data:#
-##------------------------------------------------------------------#
+anova(xmdl.rand.null, xmdl.rand, test = 'Chisq')#
 #
-## Valence:#
+## Test whether negative binomial model is needed:#
 #
-summary(val.mdl <- lm(Valence ~ DominantModality, xall))#
-anova(val.mdl)#
+odTest(xmdl.rand)#
 #
-## Absolute valence:#
+## To test interaction, full set is needed:#
 #
-summary(abs.mdl <- lm(AbsV ~ DominantModality, xall))#
-anova(abs.mdl)#
+summary(xmdl.nb <- glm.nb(Freq ~ DominantModality * POS, xagr))#
+summary(xmdl.noint <- glm.nb(Freq ~ DominantModality + POS, xagr))#
+summary(xmdl.nofreq <- glm.nb(Freq ~ 1 + POS, xagr))#
 #
-## Post-hoc tests:#
+## Likelihood ratio tests:#
 #
-t.test(Valence ~ DominantModality, filter(xall, DominantModality %in% c('Gustatory', 'Olfactory')),#
-	var.equal = T)#
+anova(xmdl.noint, xmdl.nb, test = 'Chisq')#
+anova(xmdl.nofreq, xmdl.noint, test = 'Chisq')#
 #
 ## Extract predictions:#
 #
-val.pred <- my.predict.lm(val.mdl)#
-absv.pred <- my.predict.lm(abs.mdl)#
-#
-## Make a plot of this:#
-#
-quartz('', 12, 5)#
-par(mfrow = c(1, 2), omi = c(1, 1.1, 0.85, 1.25), mai = c(0, 0.25, 0, 0))#
-## Plot 1:#
-emptyplot(xlim = c(0.5, 5.5), ylim = c(3.5, 6.5), AB = '(a)')#
-draw_preds(val.pred)#
-lower_axis(N = xall$DominantModality, type = 2)#
-top_labels(first_text = 'Warriner et al. (2013)', second_text = '', type = 2)#
-left_axis(text = 'Valence', at = seq(3.5, 6.5, 1), type = 1)#
-## Plot 2:#
-emptyplot(xlim = c(0.5, 5.5), ylim = c(0.8, 2.2), AB = '(b)')#
-draw_preds(absv.pred)#
-lower_axis(N = xall$DominantModality, type = 2)#
-mtext(side = 4, text = 'Absolute Valence', line = 3.5, font = 2, cex = 2)#
-axis(side = 4, at = seq(0.8, 2.2, 0.4), lwd = 2, font = 2, cex.axis = 1.5, las = 2)#
-top_labels(first_text = 'Warriner et al. (2013)', second_text = '', type = 2)#
-##------------------------------------------------------------------#
-## Analysis of Twitter Emotion Corpus data:#
-##------------------------------------------------------------------#
-#
-## Analysis of sentiment score:#
-#
-summary(xmdl.val <- lm(Sent ~ DominantModality, xall))#
-anova(xmdl.val)#
-#
-## Analysis of absolute sentiment score:#
-#
-summary(xmdl.abs <- lm(AbsSent ~ DominantModality, xall))#
-anova(xmdl.abs)#
-#
-## Get predictions:#
-#
-val.pred <- my.predict.lm(xmdl.val)#
-abs.pred <- my.predict.lm(xmdl.abs)#
-#
-## Make a plot of this:#
-#
-quartz('', 12, 5)#
-par(mfrow = c(1, 2), omi = c(1, 1.1, 0.85, 1.25), mai = c(0, 0.25, 0, 0))#
-## Plot 1:#
-emptyplot(xlim = c(0.5, 5.5), ylim = c(-0.8, 1.0), AB = '(a)')#
-draw_preds(val.pred)#
-lower_axis(N = xall$DominantModality, type = 2)#
-left_axis(text = 'Valence', at = seq(-0.8, 1, 0.4), type = 1)#
-top_labels(first_text = 'TEC lexicon', second_text = '', type = 2)#
-## Plot 2:#
-emptyplot(xlim = c(0.5, 5.5), ylim = c(0, 1.5), AB = '(b)')#
-draw_preds(abs.pred)#
-lower_axis(N = xall$DominantModality, type = 2)#
-mtext(side = 4, text = 'Absolute Valence', line = 4.2, font = 2, cex = 2)#
-axis(side = 4, at = seq(0, 1.5, 0.25), lwd = 2, font = 2, cex.axis = 1.5, las = 2)#
-top_labels(first_text = 'TEC lexicon', second_text = '', type = 2)#
-#
-## Post-hoc test:#
-#
-t.test(SentimentScore ~ DominantModality, filter(xall, DominantModality %in% c('Gustatory', 'Olfactory')),#
-	var.equal = T)#
-##------------------------------------------------------------------#
-## Analysis of SentiWordNet 3.0 data:#
-##------------------------------------------------------------------#
-## (only a subset of the results is reported in the body of the text: PosDiff and ValMax)#
-#
-## Make models:
-summary(xmdl.posdiff <- lm(PosDiff ~ DominantModality, xall))
-summary(xmdl.max <- lm(ValMax ~ DominantModality, xall))
-summary(xmdl.pos <- lm(PosScore ~ DominantModality, xall))#
-summary(xmdl.neg <- lm(NegScore ~ DominantModality, xall))
-anova(xmdl.posdiff)#
-anova(xmdl.pos)#
-anova(xmdl.neg)#
-#
-## Get predictions:#
-#
-pos.pred <- my.predict.lm(xmdl.pos)#
-neg.pred <- my.predict.lm(xmdl.neg)#
-max.pred <- my.predict.lm(xmdl.max)#
-#
-## Make a plot of positivity and negativity:#
-#
-setup_plots(N = 2)#
-## Plot 1:#
-emptyplot(xlim = c(0.5, 5.5), ylim = c(0, 0.15))#
-draw_preds(pos.pred)#
-lower_axis(N = xall$DominantModality, type = 2)#
-top_labels(first_text = 'Positivity', second_text = '', type = 2)#
-left_axis(text = 'Score', at = seq(0, 0.15, 0.05), type = 3)#
-## Plot 2:#
-emptyplot(xlim = c(0.5, 5.5), ylim = c(0, 0.3))#
-draw_preds(neg.pred)#
-lower_axis(N = xall$DominantModality, type = 2)#
-top_labels(first_text = 'Negativity', second_text = '', type = 2)#
-left_axis(text = '', at = seq(0, 0.4, 0.05), type = 3)
-setup_plots(N = 1)#
-## Plot 1:#
-emptyplot(xlim = c(0.5, 5.5), ylim = c(0, 0.4))#
-draw_preds(max.pred)#
-lower_axis(N = xall$DominantModality, type = 2)#
-# top_labels(first_text = '', second_text = '', type = 1)#
-left_axis(text = 'Max SentiScore', at = seq(0, 0.4, 0.1), type = 1)#
-top_labels(first_text = 'SentiWordNet 3.0', second_text = '', type = 2)
-t.test(PosDiff ~ DominantModality, filter(xall, DominantModality %in% c('Gustatory', 'Olfactory')),#
-	var.equal = T)
-head(xall)
-xall$PosDiff
-!is.na(xall$PosDiff)
-sum(!is.na(xall$PosDiff))
-sum(!is.na(xall$PosDiff)) / nrow(xall)
-summary(xmdl.posdiff <- lm(PosDiff ~ DominantModality, xall))
-anova(xmdl.posdiff)
-anova(xmdl.max)
-t.test(PosDiff ~ DominantModality, filter(xall, DominantModality %in% c('Gustatory', 'Olfactory')),#
-	var.equal = T)
-## Bodo Winter#
-## October 19, 2015#
-## Analysis for Ch. 3.3, 'Taste and smell words in context'#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Options:#
-#
-options(stringsAsFactors = F)#
-#
-## Load in packages:#
-#
-library(dplyr)#
-library(reshape2)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis'#
-#
-## Load in plotting functions:#
-#
-source(file.path(mainPath, 'functions/plotting_functions.R'))#
-source(file.path(mainPath, 'functions/model_prediction_functions.R'))#
-#
-## Load in modality norms:#
-#
-setwd(file.path(mainPath, 'data'))#
-l <- read.csv('lynott_connell_2009_adj_norms.csv')#
-n <- read.csv('lynott_connell_2013_noun_norms.csv')#
-v <- read.csv('winter_2015_verb_norms.csv')#
-#
-## Random subset of verbs:#
-#
-v <- filter(v, RandomSet == 'yes')#
-#
-## Combine all:#
-#
-xall <- rbind(dplyr::select(l, Word, DominantModality),#
-	dplyr::select(n, Word, DominantModality),#
-	dplyr::select(v, Word, DominantModality))#
-#
-## Load in data:#
-#
-adj <- read.csv('COCA_adj_noun.csv')#
-#
-## Get rid of unwanted labels (e.g., uppercase nouns):#
-#
-adj$Noun <- tolower(adj$Noun)#
-adj <- aggregate(Freq ~ Noun * Word, adj, sum)#
-adj <- dplyr::select(adj, Word, Noun, Freq)#
-#
-## Define vector with order of modalities:#
-#
-modalities <- c('Visual', 'Haptic', 'Auditory', 'Gustatory', 'Olfactory')#
-##------------------------------------------------------------------#
-## Load in valence norms:#
-##------------------------------------------------------------------#
-#
-## Load in Warriner:#
-#
-aff <- read.csv('warriner_2013_affective_norms.csv')#
-aff <- mutate(aff, AbsV = abs(Val - mean(Val)))	# absolute valence#
-#
-## Load in NRC Hashtag data:#
-#
-hash <- read.csv('NRC_hashtag_unigrams-pmilexicon.txt', sep = '\t', header = F)#
-#
-## Colnames:#
-#
-hash <- rename(hash, Word = V1, Sent = V2, NumPos = V3, NumNeg = V4)#
-#
-## Create absolute valence score:#
-#
-hash <- mutate(hash, AbsSent = abs(Sent - mean(Sent, na.rm = T)))#
-#
-## Load in Senti Wordnet:#
-#
-sent <- read.csv('sentiwordnet_3.0.csv')#
-##------------------------------------------------------------------#
-## Objectivity vs. subjectivity:#
-##------------------------------------------------------------------#
-#
-## Imdb movie review dataset classified according to subjective versus objective:#
-#
-subj <- readLines('pang_lee_2004_subjective.txt')#
-obj <- readLines('pang_lee_2004_objective.txt')#
-#
-## Process this:#
-#
-subj <- strsplit(subj, split = ' ')#
-obj <- strsplit(obj, split = ' ')#
-#
-## Make a table:#
-#
-subj_df <- data.frame(Objectivity = rep('subj', 5000))#
-obj_df <- data.frame(Objectivity = rep('obj', 5000))#
-#
-## Dataframe:#
-#
-M <- as.data.frame(matrix(numeric(5*5000), nrow = 5000))#
-colnames(M) <- modalities#
-subj_df <- cbind(subj_df, M)#
-obj_df <- cbind(obj_df, M)#
-#
-## Dataframes with words per modality:#
-#
-Visual <- unique(xall[xall$DominantModality == 'Visual',]$Word)#
-Haptic <- unique(xall[xall$DominantModality == 'Haptic',]$Word)#
-Auditory <- unique(xall[xall$DominantModality == 'Auditory',]$Word)#
-Gustatory <- unique(xall[xall$DominantModality == 'Gustatory',]$Word)#
-Olfactory <- unique(xall[xall$DominantModality == 'Olfactory',]$Word)#
-#
-## Loop through subj and put it into df:#
-#
-for (i in 1:5000) {#
-	this_vector <- subj[[i]]#
-	for (j in 1:5) {#
-		this_modality <- modalities[j]#
-		subj_df[i, this_modality] <- sum(this_vector %in% get(this_modality))#
-		}#
-	}#
-#
-## Do the same for obj:#
-#
-for (i in 1:5000) {#
-	this_vector <- obj[[i]]#
-	for (j in 1:5) {#
-		this_modality <- modalities[j]#
-		obj_df[i, this_modality] <- sum(this_vector %in% get(this_modality))#
-		}#
-	}#
-#
-## Combine:#
-#
-subj <- rbind(subj_df, obj_df)#
-#
-## Make negative binomial models for this:#
-#
-library(MASS)#
-summary(vis.mdl <- glm.nb(Visual ~ Objectivity, subj))#
-summary(hap.mdl <- glm.nb(Haptic ~ Objectivity, subj))#
-summary(aud.mdl <- glm.nb(Auditory ~ Objectivity, subj))#
-summary(gus.mdl <- glm.nb(Gustatory ~ Objectivity, subj))#
-summary(olf.mdl <- glm.nb(Olfactory ~ Objectivity, subj))#
-#
-## Make null models for comparison:#
-#
-vis.null <- glm.nb(Visual ~ 1, subj)#
-hap.null <- glm.nb(Haptic ~ 1, subj)#
-aud.null <- glm.nb(Auditory ~ 1, subj)#
-gus.null <- glm.nb(Gustatory ~ 1, subj)#
-olf.null <- glm.nb(Olfactory ~ 1, subj)#
-anova(vis.null, vis.mdl, test = 'Chisq')#
-anova(hap.null, hap.mdl, test = 'Chisq')#
-anova(aud.null, aud.mdl, test = 'Chisq')#
-anova(gus.null, gus.mdl, test = 'Chisq')#
-anova(olf.null, olf.mdl, test = 'Chisq')#
-#
-## Make predictions table that contains the slopes:#
-#
-xpred <- data.frame(DominantModality = modalities)#
-xpred$fit <- c(coef(vis.mdl)[2], coef(hap.mdl)[2], coef(aud.mdl)[2], coef(gus.mdl)[2], coef(olf.mdl)[2])#
-xpred$se.fit <- c(summary(vis.mdl)$coefficients[2,2],#
-	summary(hap.mdl)$coefficients[2,2],#
-	summary(aud.mdl)$coefficients[2,2],#
-	summary(gus.mdl)$coefficients[2,2],#
-	summary(olf.mdl)$coefficients[2,2])#
-xpred$UB <- xpred$fit + 1.96 * xpred$se.fit#
-xpred$LB <- xpred$fit - 1.96 * xpred$se.fit#
+xmdl.df <- my.predict.lm(xmdl.rand, link = 'log')#
 #
 ## Make a plot of this:#
 #
 setup_plots(N = 1)#
-emptyplot(xlim = c(0.5, 5.5), ylim = c(-0.5, 2))#
-abline(h = 0, lty = 2)#
-draw_preds(xpred)#
-lower_axis(N = '', type = 2)#
-top_labels(first_text = 'Subjectivity vs. Objectivity', second_text = '', type = 2)#
-left_axis(text = 'Log Slope', at = seq(-0.5, 2, 0.5), type = 1)#
-##------------------------------------------------------------------#
-## Preprocess COCA adj-noun pairs:#
-##------------------------------------------------------------------#
-#
-## Merge dominant modality into there:#
-#
-adj$DominantModality <- l[match(adj$Word, l$Word),]$DominantModality#
-#
-## For creating weights, create frequencies:#
-#
-adj_freqs <- aggregate(Freq ~ Word, adj, sum)#
-#
-## For creating weights, merge the frequencies into the table:#
-#
-adj$AdjFreq <- adj_freqs[match(adj$Word, adj_freqs$Word), ]$Freq#
-#
-## Create weights:#
-#
-adj <- mutate(adj, Weight = Freq / AdjFreq)#
-#
-## Merge valence into adj:#
-#
-adj$Valence <- aff[match(adj$Noun, aff$Word),]$Val#
-adj$AbsV <- aff[match(adj$Noun, aff$Word),]$AbsV#
-#
-## Merge:#
-#
-adj$Sent <- hash[match(adj$Noun, hash$Word), ]$Sent#
-adj$AbsSent <- hash[match(adj$Noun, hash$Word), ]$AbsSent#
-#
-# Define empty dataset with slots for all nouns that co-occur with adjectives:#
-#
-all_nouns <- unique(adj$Noun)#
-all_nouns <- data.frame(Noun = all_nouns)#
-all_nouns$PosScore <- NA#
-all_nouns$NegScore <- NA#
-#
-## Clean tags that create problems for regular expressions (and won't be matachable anyway):#
-#
-not_these <- grep('\\(', all_nouns$Noun)#
-all_nouns <- all_nouns[-not_these,]#
-not_these <- grep('\\*', all_nouns$Noun)#
-all_nouns <- all_nouns[-not_these,]#
-#
-## Get SentiWordNet data for each noun:#
-#
-for (i in 1:nrow(all_nouns)) {#
-	this_word <- all_nouns[i,]$Noun#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)#
-	if (length(these_sent) > 0) {#
-		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])#
-		all_nouns[i,]$PosScore <- means[1]#
-		all_nouns[i,]$NegScore <- means[2]#
-		}#
-#
-	if (i %% 100 == 0) {#
-		cat(paste0(i, '\n'))#
-		}#
-	}
-773 / 4078
-506 / 1395
-1929 / 566
-4078 / 773
-1395 / 506
-566 / 1929
-244 / 4576
-3683 / 2362
-## Bodo Winter#
-## September 18, 2015; November 11, 2015#
-## Relationships between sensory modalities#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Options:#
-#
-options(stringsAsFactors = F)#
-#
-## Load in libraries:#
-#
-library(dplyr)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd'#
-#
-## Load in plotting and prediction functions:#
-#
-source(file.path(mainPath, 'scripts/plotting_functions.R'))#
-source(file.path(mainPath, 'scripts/model_prediction_functions.R'))#
-#
-## Load in COCA data:#
-#
-setwd(file.path(mainPath, 'data/'))#
-COCA <- read.csv('COCA_new_n2_cleaned.csv')#
-#
-## Load in modality norms:#
-#
-l <- read.csv('lynott_connell_2009_norms.csv')#
-n <- read.csv('lynott_connell_2013_noun_norms.csv')#
-v <- read.csv('verb_norms.csv')#
-#
-## Take only the random subset of the verbs:#
-#
-v <- filter(v, RandomSet == 'yes')#
-#
-## Compute COCA frequencies aggregate (sum)#
-#
-noun_freqs <- aggregate(Freq ~ Noun, COCA, sum)#
-#
-## Compute overall adjective frequencies:#
-#
-adj_sum <- aggregate(Freq ~ Word, adj, sum)#
-#
-## Create adj dataframe:#
-#
-adj <- COCA#
-#
-## Add adjective perceptual strengths:#
-#
-modalities <- c('VisualStrengthMean', 'AuditoryStrengthMean', 'HapticStrengthMean',#
-	'GustatoryStrengthMean', 'OlfactoryStrengthMean')#
-adj_norms <- l[match(adj$Word, l$Word), c(modalities, 'DominantModality', 'ModalityExclusivity')]#
-colnames(adj_norms) <- paste0('Adj',colnames(adj_norms))#
-adj <- cbind(adj, adj_norms)#
-rm(adj_norms)#
-#
-## Add noun perceptual strengths:#
-#
-noun_norms <- n[match(adj$Noun, n$Word), c(modalities, 'DominantModality', 'ModalityExclusivity')]#
-colnames(noun_norms) <- paste0('Noun',colnames(noun_norms))#
-adj <- cbind(adj, noun_norms)#
-rm(noun_norms)#
-#
-## Change rownames back to normal:#
-#
-rownames(adj) <- 1:nrow(adj)#
-#
-## Compute log frequency:#
-#
-adj <- mutate(adj, LogFreq = log10(Freq))#
-##------------------------------------------------------------------#
-## Add Warriner et al. (2013) data:#
-##------------------------------------------------------------------#
-#
-## Load in other datasets used in this particular analysis:#
-#
-aff <- read.csv('warriner_2013_affective_norms.csv')#
-#
-## Create absolute valnce norms:#
-#
-aff <- mutate(aff, AbsV = abs(V.Mean.Sum - mean(V.Mean.Sum)))#
-#
-## Merge affect into 'adj':#
-#
-adj$AdjAbsV <- aff[match(adj$Word, aff$Word),]$AbsV#
-##------------------------------------------------------------------#
-## Compute modality fit between adj-noun pairs (cosine similarity):#
-##------------------------------------------------------------------#
-#
-## Cosine similarity function:#
-#
-cosine_sim <- function(x, y) {#
-	numerator <- x %*% y#
-	denominator <- sqrt(x %*% x * y %*% y)#
-	return(as.vector(numerator/denominator))#
-	}#
-#
-## Create empty cosine column to fill with modality fit:#
-#
-adj$Cosine <- NA#
-#
-## Loop through and compute the cosine of the adj and the noun modality strenths:#
-#
-for (i in 1:nrow(adj)) {#
-	A <- unlist(adj[i,grep('Noun(.)+StrengthMean', colnames(adj))])#
-	B <- unlist(adj[i,grep('Adj(.)+StrengthMean', colnames(adj))])#
-	if (all(!is.na(A))) {#
-		adj[i,]$Cosine <- cosine_sim(A, B)#
-		}#
-	if (i %% 1000 == 0) {cat(paste(i, '\n'))}#
-	}#
-#
-## Subset without NAs to plot distribution:#
-#
-mcos <- adj[!is.na(adj$Cosine),]#
-#
-## Make a plot of the cosine distribution:#
-#
-setup_plots(N = 1)#
-emptyplot(xlim = c(0, 1), ylim = c(0, 5), yaxs = 'i')#
-plot_density(mcos$Cosine, powerpoint = F, mean = F)#
-left_axis(text = 'Density', at = seq(0, 5, 1), type = 1)#
-mtext(side = 3, line = 1, text = 'Modality Compatibility', cex = 1.5, font = 2)#
-lower_axis(style = 'continuous', lab = 'Cosine Similarity', at = seq(0, 1, 0.25), type = 1)#
-box(lwd = 2)#
-segments(x0 = 0.95, x1 = 0.65, y0 = 2, y1 = 3, lwd = 3)#
-text(x = 0.65, y = 3.15, labels = 'abrasive contact', font = 2, cex = 1.35)#
-segments(x0 = 0.12, x1 = 0.25, y0 = 0.1, y1 = 1, lwd = 3)#
-text(x = 0.25, y = 1.15, labels = 'fragrant music', font = 2, cex = 1.35)#
-##------------------------------------------------------------------#
-## Frequency analysis and plots (not discussed in body of the text):#
-##------------------------------------------------------------------#
-#
-## Correlate this WarrValDiff with frequency:#
-#
-summary(mod.match.mdl <- lm(LogFreq ~ Cosine, mcos))#
-#
-## Conduct test with heteroskedasticity corrected standard errors:#
-#
-library(lmtest)#
-library(sandwich)#
-coeftest(mod.match.mdl, vcov = vcovHC)#
-waldtest(mod.match.mdl, vcov = vcovHC)#
-#
-## The plot:#
-#
-setup_plots(N = 1)#
-emptyplot(xlim = c(0, 1), ylim = c(0, 5), AB = '')	# modality match#
-points(mcos$Cosine, mcos$LogFreq,#
-	pch = 19, cex = 0.8, col = rgb(0,0,0,0.4))#
-left_axis(text = 'Log Frequency', at = seq(0, 5, 1), type = 1)#
-mtext(side = 3, line = 1, text = 'Modality Match', cex = 1.5, font = 2)#
-lower_axis(style = 'continuous', lab = 'Cosine Similarity', type = 1,#
-	at = seq(0, 1, 0.25))#
-##------------------------------------------------------------------#
-## Compute baseline cosine values:#
-##------------------------------------------------------------------#
-#
-## Create a baseline cosine value (random pairing):#
-#
-random_cosines <- numeric(nrow(mcos))#
-set.seed(42)#
-for (i in 1:10000) {#
-	this_adj_row <- sample(1:nrow(mcos), 1)#
-	this_adj <- mcos[this_adj_row, ]$Word#
-	these_noun_collocates <- unique(mcos[mcos$Word == this_adj,]$Noun)#
-	possible_noun_choices <- (1:nrow(mcos))[!(mcos$Noun %in% these_noun_collocates)]#
-	this_noun <- sample(possible_noun_choices, 1)#
-	A <- unlist(mcos[this_noun, grep('Noun(.)+StrengthMean', colnames(mcos))])#
-	B <- unlist(mcos[this_adj_row, grep('Adj(.)+StrengthMean', colnames(mcos))])#
-	random_cosines[i] <- cosine_sim(A, B)#
-	if (i %% 1000 == 0) {cat(paste(i, '\n'))}	#
-	}#
-#
-## Test random cosines against real cosines:#
-#
-wilcox.test(random_cosines, adj_red$Cosine, paired = F)
-random_cosines
-## Bodo Winter#
-## September 18, 2015; November 11, 2015#
-## Relationships between sensory modalities#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Options:#
-#
-options(stringsAsFactors = F)#
-#
-## Load in libraries:#
-#
-library(dplyr)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd'#
-#
-## Load in plotting and prediction functions:#
-#
-source(file.path(mainPath, 'scripts/plotting_functions.R'))#
-source(file.path(mainPath, 'scripts/model_prediction_functions.R'))#
-#
-## Load in COCA data:#
-#
-setwd(file.path(mainPath, 'data/'))#
-COCA <- read.csv('COCA_new_n2_cleaned.csv')#
-#
-## Load in modality norms:#
-#
-l <- read.csv('lynott_connell_2009_norms.csv')#
-n <- read.csv('lynott_connell_2013_noun_norms.csv')#
-v <- read.csv('verb_norms.csv')#
-#
-## Take only the random subset of the verbs:#
-#
-v <- filter(v, RandomSet == 'yes')#
-#
-## Compute COCA frequencies aggregate (sum)#
-#
-noun_freqs <- aggregate(Freq ~ Noun, COCA, sum)#
-#
-## Compute overall adjective frequencies:#
-#
-adj_sum <- aggregate(Freq ~ Word, adj, sum)#
-#
-## Create adj dataframe:#
-#
-adj <- COCA#
-#
-## Add adjective perceptual strengths:#
-#
-modalities <- c('VisualStrengthMean', 'AuditoryStrengthMean', 'HapticStrengthMean',#
-	'GustatoryStrengthMean', 'OlfactoryStrengthMean')#
-adj_norms <- l[match(adj$Word, l$Word), c(modalities, 'DominantModality', 'ModalityExclusivity')]#
-colnames(adj_norms) <- paste0('Adj',colnames(adj_norms))#
-adj <- cbind(adj, adj_norms)#
-rm(adj_norms)#
-#
-## Add noun perceptual strengths:#
-#
-noun_norms <- n[match(adj$Noun, n$Word), c(modalities, 'DominantModality', 'ModalityExclusivity')]#
-colnames(noun_norms) <- paste0('Noun',colnames(noun_norms))#
-adj <- cbind(adj, noun_norms)#
-rm(noun_norms)#
-#
-## Change rownames back to normal:#
-#
-rownames(adj) <- 1:nrow(adj)#
-#
-## Compute log frequency:#
-#
-adj <- mutate(adj, LogFreq = log10(Freq))#
-##------------------------------------------------------------------#
-## Add Warriner et al. (2013) data:#
-##------------------------------------------------------------------#
-#
-## Load in other datasets used in this particular analysis:#
-#
-aff <- read.csv('warriner_2013_affective_norms.csv')#
-#
-## Create absolute valnce norms:#
-#
-aff <- mutate(aff, AbsV = abs(V.Mean.Sum - mean(V.Mean.Sum)))#
-#
-## Merge affect into 'adj':#
-#
-adj$AdjAbsV <- aff[match(adj$Word, aff$Word),]$AbsV#
-##------------------------------------------------------------------#
-## Compute modality fit between adj-noun pairs (cosine similarity):#
-##------------------------------------------------------------------#
-#
-## Cosine similarity function:#
-#
-cosine_sim <- function(x, y) {#
-	numerator <- x %*% y#
-	denominator <- sqrt(x %*% x * y %*% y)#
-	return(as.vector(numerator/denominator))#
-	}#
-#
-## Create empty cosine column to fill with modality fit:#
-#
-adj$Cosine <- NA
-head(adj)
-mcos <- filter(adj, !is.na(NounVisualStrengthMean))
-head(mcos)
-mcos$Cosine <- NA#
-#
-## Loop through and compute the cosine of the adj and the noun modality strenths:#
-#
-for (i in 1:nrow(mcos)) {#
-	A <- unlist(mcos[i,grep('Noun(.)+StrengthMean', colnames(adj))])#
-	B <- unlist(mcos[i,grep('Adj(.)+StrengthMean', colnames(adj))])#
-	mcos[i,]$Cosine <- cosine_sim(A, B)#
-	if (i %% 1000 == 0) {cat(paste(i, '\n'))}#
-	}
-random_cosines <- numeric(nrow(mcos))#
-set.seed(42)
-for (i in 1:10000) {#
-	this_adj_row <- sample(1:nrow(mcos), 1)#
-	this_adj <- mcos[this_adj_row, ]$Word#
-	these_noun_collocates <- unique(mcos[mcos$Word == this_adj,]$Noun)#
-	possible_noun_choices <- (1:nrow(mcos))[!(mcos$Noun %in% these_noun_collocates)]#
-	this_noun <- sample(possible_noun_choices, 1)#
-	A <- unlist(mcos[this_noun, grep('Noun(.)+StrengthMean', colnames(mcos))])#
-	B <- unlist(mcos[this_adj_row, grep('Adj(.)+StrengthMean', colnames(mcos))])#
-	random_cosines[i] <- cosine_sim(A, B)#
-	if (i %% 1000 == 0) {cat(paste(i, '\n'))}	#
-	}
-random_cosines
-random_cosines <- random_cosines[1:10000]
-wilcox.test(random_cosines, mcos$Cosine, paired = F)
-mean(random_cosines)
-## Bodo Winter#
-## September 18, 2015; November 11, 2015#
-## Relationships between sensory modalities#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Options:#
-#
-options(stringsAsFactors = F)#
-#
-## Load in libraries:#
-#
-library(dplyr)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd'#
-#
-## Load in plotting and prediction functions:#
-#
-source(file.path(mainPath, 'scripts/plotting_functions.R'))#
-source(file.path(mainPath, 'scripts/model_prediction_functions.R'))#
-#
-## Load in COCA data:#
-#
-setwd(file.path(mainPath, 'data/'))#
-COCA <- read.csv('COCA_new_n2_cleaned.csv')#
-#
-## Load in modality norms:#
-#
-l <- read.csv('lynott_connell_2009_norms.csv')#
-n <- read.csv('lynott_connell_2013_noun_norms.csv')#
-v <- read.csv('verb_norms.csv')#
-#
-## Take only the random subset of the verbs:#
-#
-v <- filter(v, RandomSet == 'yes')#
-#
-## Compute COCA frequencies aggregate (sum)#
-#
-noun_freqs <- aggregate(Freq ~ Noun, COCA, sum)#
-#
-## Compute overall adjective frequencies:#
-#
-adj_sum <- aggregate(Freq ~ Word, adj, sum)#
-#
-## Create adj dataframe:#
-#
-adj <- COCA#
-#
-## Add adjective perceptual strengths:#
-#
-modalities <- c('VisualStrengthMean', 'AuditoryStrengthMean', 'HapticStrengthMean',#
-	'GustatoryStrengthMean', 'OlfactoryStrengthMean')#
-adj_norms <- l[match(adj$Word, l$Word), c(modalities, 'DominantModality', 'ModalityExclusivity')]#
-colnames(adj_norms) <- paste0('Adj',colnames(adj_norms))#
-adj <- cbind(adj, adj_norms)#
-rm(adj_norms)#
-#
-## Add noun perceptual strengths:#
-#
-noun_norms <- n[match(adj$Noun, n$Word), c(modalities, 'DominantModality', 'ModalityExclusivity')]#
-colnames(noun_norms) <- paste0('Noun',colnames(noun_norms))#
-adj <- cbind(adj, noun_norms)#
-rm(noun_norms)#
-#
-## Change rownames back to normal:#
-#
-rownames(adj) <- 1:nrow(adj)#
-#
-## Compute log frequency:#
-#
-adj <- mutate(adj, LogFreq = log10(Freq))#
-##------------------------------------------------------------------#
-## Add Warriner et al. (2013) data:#
-##------------------------------------------------------------------#
-#
-## Load in other datasets used in this particular analysis:#
-#
-aff <- read.csv('warriner_2013_affective_norms.csv')#
-#
-## Create absolute valnce norms:#
-#
-aff <- mutate(aff, AbsV = abs(V.Mean.Sum - mean(V.Mean.Sum)))#
-#
-## Merge affect into 'adj':#
-#
-adj$AdjAbsV <- aff[match(adj$Word, aff$Word),]$AbsV#
-##------------------------------------------------------------------#
-## Compute modality fit between adj-noun pairs (cosine similarity):#
-##------------------------------------------------------------------#
-#
-## Cosine similarity function:#
-#
-cosine_sim <- function(x, y) {#
-	numerator <- x %*% y#
-	denominator <- sqrt(x %*% x * y %*% y)#
-	return(as.vector(numerator/denominator))#
-	}#
-#
-## Create a subset for which both adj and noun norms exist:#
-#
-mcos <- filter(adj, !is.na(NounVisualStrengthMean))#
-#
-## Create empty cosine column to fill with modality fit:#
-#
-mcos$Cosine <- NA#
-#
-## Loop through and compute the cosine of the adj and the noun modality strenths:#
-#
-for (i in 1:nrow(mcos)) {#
-	A <- unlist(mcos[i,grep('Noun(.)+StrengthMean', colnames(adj))])#
-	B <- unlist(mcos[i,grep('Adj(.)+StrengthMean', colnames(adj))])#
-	mcos[i,]$Cosine <- cosine_sim(A, B)#
-	if (i %% 1000 == 0) {cat(paste(i, '\n'))}#
-	}#
-#
-## Make a plot of the cosine distribution:#
-#
-setup_plots(N = 1)#
-emptyplot(xlim = c(0, 1), ylim = c(0, 5), yaxs = 'i')#
-plot_density(mcos$Cosine, powerpoint = F, mean = F)#
-left_axis(text = 'Density', at = seq(0, 5, 1), type = 1)#
-mtext(side = 3, line = 1, text = 'Modality Compatibility', cex = 1.5, font = 2)#
-lower_axis(style = 'continuous', lab = 'Cosine Similarity', at = seq(0, 1, 0.25), type = 1)#
-box(lwd = 2)#
-segments(x0 = 0.95, x1 = 0.65, y0 = 2, y1 = 3, lwd = 3)#
-text(x = 0.65, y = 3.15, labels = 'abrasive contact', font = 2, cex = 1.35)#
-segments(x0 = 0.12, x1 = 0.25, y0 = 0.1, y1 = 1, lwd = 3)#
-text(x = 0.25, y = 1.15, labels = 'fragrant music', font = 2, cex = 1.35)#
-##------------------------------------------------------------------#
-## Frequency analysis and plots (not discussed in body of the text):#
-##------------------------------------------------------------------#
-#
-## Correlate this WarrValDiff with frequency:#
-#
-summary(mod.match.mdl <- lm(LogFreq ~ Cosine, mcos))#
-#
-## Conduct test with heteroskedasticity corrected standard errors:#
-#
-library(lmtest)#
-library(sandwich)#
-coeftest(mod.match.mdl, vcov = vcovHC)#
-waldtest(mod.match.mdl, vcov = vcovHC)#
-#
-## The plot:#
-#
-setup_plots(N = 1)#
-emptyplot(xlim = c(0, 1), ylim = c(0, 5), AB = '')	# modality match#
-points(mcos$Cosine, mcos$LogFreq,#
-	pch = 19, cex = 0.8, col = rgb(0,0,0,0.4))#
-left_axis(text = 'Log Frequency', at = seq(0, 5, 1), type = 1)#
-mtext(side = 3, line = 1, text = 'Modality Match', cex = 1.5, font = 2)#
-lower_axis(style = 'continuous', lab = 'Cosine Similarity', type = 1,#
-	at = seq(0, 1, 0.25))#
-##------------------------------------------------------------------#
-## Compute baseline cosine values:#
-##------------------------------------------------------------------#
-#
-## Create a baseline cosine value (random pairing):#
-#
-random_cosines <- numeric(10000)#
-set.seed(42)#
-for (i in 1:10000) {#
-	this_adj_row <- sample(1:nrow(mcos), 1)#
-	this_adj <- mcos[this_adj_row, ]$Word#
-	these_noun_collocates <- unique(mcos[mcos$Word == this_adj,]$Noun)#
-	possible_noun_choices <- (1:nrow(mcos))[!(mcos$Noun %in% these_noun_collocates)]#
-	this_noun <- sample(possible_noun_choices, 1)#
-	A <- unlist(mcos[this_noun, grep('Noun(.)+StrengthMean', colnames(mcos))])#
-	B <- unlist(mcos[this_adj_row, grep('Adj(.)+StrengthMean', colnames(mcos))])#
-	random_cosines[i] <- cosine_sim(A, B)#
-	if (i %% 1000 == 0) {cat(paste(i, '\n'))}	#
-	}#
-#
-## Average:#
-#
-mean(random_cosines)#
-#
-## Test random cosines against real cosines:#
-#
-wilcox.test(random_cosines, mcos$Cosine, paired = F)
-n[n$Word == 'paper',]
-n[n$Word == 'welfare',]
-## Bodo Winter#
-## November 27, 2015#
-## Hedonic dimension of roughness and smoothness analysis#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Set options:#
-#
-options(stringsAsFactors = F)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis/'#
-#
-## Load in plotting functions:#
-#
-source(file.path(mainPath, 'functions/plotting_functions.R'))#
-#
-## Load in libraries:#
-#
-library(dplyr)#
-#
-## Load in data:#
-#
-setwd(file.path(mainPath, 'data'))#
-stadt <- read.csv('stadtlander_murdoch_2000.csv')
-stadt <- read.csv('/Users/teeniematlock/Desktop/sense_phd/data/stadtlander_murdoch_2000.csv')
-head(stadt)
-stadt <- stadt[,c('Word', 'RoughnessMean', 'HardnessMean')]
-stadt$Word <- gsub('\\*', '', stadt$Word)
-head(stadt)
-stadt <- stadt[!is.na(stadt$RoughnessMean) | !is.na(stadt$HardnessMean),]
-head(stadt)
-nrow(stadt)
-getwd()
-write.table(stadt, 'stadtlander_murdoch_2000.csv', sep = ',', row.names = F)
-## Bodo Winter#
-## November 27, 2015#
-## Hedonic dimension of roughness and smoothness analysis#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Set options:#
-#
-options(stringsAsFactors = F)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis/'#
-#
-## Load in plotting functions:#
-#
-source(file.path(mainPath, 'functions/plotting_functions.R'))#
-#
-## Load in libraries:#
-#
-library(dplyr)#
-#
-## Load in data:#
-#
-setwd(file.path(mainPath, 'data'))#
-stadt <- read.csv('stadtlander_murdoch_2000.csv')
-head(stadt)
-##------------------------------------------------------------------#
-## Load in and pre-process valence norms:#
-##------------------------------------------------------------------#
-#
-## Load in other datasets used in this particular analysis:#
-#
-aff <- read.csv('warriner_2013_affective_norms.csv')
-head(aff)
-aff <- mutate(aff, AbsV = abs(Val - mean(Val)))
-head(aff)
-stadt$Val <- aff[match(stadt$Word, aff$Word),]$Val#
-stadt$AbsV <- aff[match(stadt$Word, aff$Word),]$AbsV
-head(aff)
-## Load in Senti Wordnet:#
-#
-sent <- read.csv('SentiWordNet_3.0.0_20130122.txt', skip = 26, header = T, sep = '\t')
-sent$SynsetTerms <- gsub('#[0-9]', '', sent$SynsetTerms)#
-#
-## Rename:#
-#
-sent <- rename(sent, POS = X..POS)
-sent <- read.csv('sentiwordnet_3.0.csv')
-head(sent)
-## Bodo Winter#
-## November 27, 2015#
-## Hedonic dimension of roughness and smoothness analysis#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Set options:#
-#
-options(stringsAsFactors = F)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis/'#
-#
-## Load in plotting functions:#
-#
-source(file.path(mainPath, 'functions/plotting_functions.R'))#
-#
-## Load in libraries:#
-#
-library(dplyr)#
-#
-## Load in data:#
-#
-setwd(file.path(mainPath, 'data'))#
-stadt <- read.csv('stadtlander_murdoch_2000.csv')#
-##------------------------------------------------------------------#
-## Load in and pre-process valence norms:#
-##------------------------------------------------------------------#
-#
-## Load in other datasets used in this particular analysis:#
-#
-aff <- read.csv('warriner_2013_affective_norms.csv')#
-#
-## Compute absolute valence score:#
-#
-aff <- mutate(aff, AbsV = abs(Val - mean(Val)))#
-#
-## Merge valence into stadt:#
-#
-stadt$Val <- aff[match(stadt$Word, aff$Word),]$Val#
-stadt$AbsV <- aff[match(stadt$Word, aff$Word),]$AbsV#
-#
-## Load in Senti Wordnet:#
-#
-sent <- read.csv('sentiwordnet_3.0.csv')#
-#
-## Loop through each Lynott and Connell (2009) term and retrieve the corresponding senti wordnet entries:#
-#
-stadt$PosScore <- NA#
-stadt$NegScore <- NA#
-for (i in 1:nrow(stadt)) {#
-	this_word <- stadt[i,]$Word#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)#
-	if (length(these_sent) > 0) {#
-		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])#
-		stadt[i,]$PosScore <- means[1]#
-		stadt[i,]$NegScore <- means[2]#
-		}#
-#
-	if (i %% 100 == 0) {#
-		cat(paste0(i, '\n'))#
-		}#
-	}
-stadt <- mutate(stadt, PosDiff = PosScore - NegScore)
-head(stadt)
-setwd(file.path(mainPath, 'data'))#
-hash <- read.csv('NRC_hashtag_unigrams-pmilexicon.txt', sep = '\t', header = F)
-hash <- rename(hash, Word = V1, SentimentScore = V2, NumPos = V3, NumNeg = V4)
-hash <- mutate(hash, AbsSent = abs(SentimentScore - mean(SentimentScore, na.rm = T)))
-head(hash)
-stadt$Sent <- hash[match(stadt$Word, hash$Word), ]$SentimentScore
-stadt$AbsSent <- hash[match(stadt$Word, hash$Word), ]$AbsSent
-head(stadt)
-sum(!is.na(stadt$Val))#
-sum(!is.na(stadt$Val)) / nrow(stadt)
-sum(!is.na(stadt$PosScore))#
-sum(!is.na(stadt$PosScore)) / nrow(stadt)
-sum(!is.na(stadt$SentimentScore))#
-sum(!is.na(stadt$SentimentScore)) / nrow(stadt)
-sum(!is.na(stadt$Sent))#
-sum(!is.na(stadt$Sent)) / nrow(stadt)
-both <- stadt[!is.na(stadt$RoughnessMean) & !is.na(stadt$HardnessMean),]#
-nrow(both)	# 38#
-#
-## Correlate:#
-#
-summary(lm(RoughnessMean ~ HardnessMean, both))	# R^2 = 63%!#
-with(both, cor.test(RoughnessMean, HardnessMean))	# r = 0.79
-## Take a subset for which both norms exist:#
-#
-both <- stadt[!is.na(stadt$RoughnessMean) & !is.na(stadt$HardnessMean),]#
-nrow(both)	# 38#
-#
-## Correlate:#
-#
-summary(lm(RoughnessMean ~ HardnessMean, both))	# R^2 = 63%!
-with(both, cor.test(RoughnessMean, HardnessMean))	# r = 0.79
-noslime <- stadt[stadt$Word != 'slimy',]
-head(stadt)
-stadt <- stadt[,1:3]
-head(stadt)
-stadt <- rename(stadt, Roughness = RoughnessMean, Hardness = HardnessMean)
-head(stadt)
-write.table(stadt, 'stadtlander_murdoch_2000.csv', row.names = F, sep = ',')
-## Bodo Winter#
-## November 27, 2015#
-## Hedonic dimension of roughness and smoothness analysis#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Set options:#
-#
-options(stringsAsFactors = F)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis/'#
-#
-## Load in plotting functions:#
-#
-source(file.path(mainPath, 'functions/plotting_functions.R'))#
-#
-## Load in libraries:#
-#
-library(dplyr)#
-#
-## Load in data:#
-#
-setwd(file.path(mainPath, 'data'))#
-stadt <- read.csv('stadtlander_murdoch_2000.csv')
-head(stadt)
-## Bodo Winter#
-## November 27, 2015#
-## Hedonic dimension of roughness and smoothness analysis#
-#
-##------------------------------------------------------------------#
-## Pre-processing:#
-##------------------------------------------------------------------#
-#
-## Set options:#
-#
-options(stringsAsFactors = F)#
-#
-## Define path to parent directory:#
-#
-mainPath <- '/Users/teeniematlock/Desktop/sense_phd/analysis/'#
-#
-## Load in plotting functions:#
-#
-source(file.path(mainPath, 'functions/plotting_functions.R'))#
-#
-## Load in libraries:#
-#
-library(dplyr)#
-#
-## Load in data:#
-#
-setwd(file.path(mainPath, 'data'))#
-stadt <- read.csv('stadtlander_murdoch_2000.csv')#
-##------------------------------------------------------------------#
-## Correlating roughness and hardness:#
-##------------------------------------------------------------------#
-#
-## Take a subset for which both norms exist:#
-#
-both <- stadt[!is.na(stadt$Roughness) & !is.na(stadt$Hardness),]#
-nrow(both)	# 38#
-#
-## Correlate:#
-#
-summary(lm(Roughness ~ Hardness, both))	# R^2 = 63%!#
-with(both, cor.test(Roughness, Hardness))	# r = 0.79
-nrow(both)
-with(both, cor.test(Roughness, Hardness))	# r = 0.79
-aff <- read.csv('warriner_2013_affective_norms.csv')#
-#
-## Compute absolute valence score:#
-#
-aff <- mutate(aff, AbsV = abs(Val - mean(Val)))#
-#
-## Merge valence into stadt:#
-#
-stadt$Val <- aff[match(stadt$Word, aff$Word),]$Val#
-stadt$AbsV <- aff[match(stadt$Word, aff$Word),]$AbsV#
-#
-## Load in Senti Wordnet:#
-#
-sent <- read.csv('sentiwordnet_3.0.csv')#
-#
-## Loop through each Lynott and Connell (2009) term and retrieve the corresponding senti wordnet entries:#
-#
-stadt$PosScore <- NA#
-stadt$NegScore <- NA#
-for (i in 1:nrow(stadt)) {#
-	this_word <- stadt[i,]$Word#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)#
-	if (length(these_sent) > 0) {#
-		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])#
-		stadt[i,]$PosScore <- means[1]#
-		stadt[i,]$NegScore <- means[2]#
-		}#
-#
-	if (i %% 100 == 0) {#
-		cat(paste0(i, '\n'))#
-		}#
-	}#
-#
-## Create valence difference score:#
-#
-stadt <- mutate(stadt, PosDiff = PosScore - NegScore)#
-#
-## Load in NRC Hashtag data:#
-#
-hash <- read.csv('NRC_hashtag_unigrams-pmilexicon.txt', sep = '\t', header = F)#
-#
-## Colnames:#
-#
-hash <- rename(hash, Word = V1, SentimentScore = V2, NumPos = V3, NumNeg = V4)#
-#
-## Create absolute valence score:#
-#
-hash <- mutate(hash, AbsSent = abs(SentimentScore - mean(SentimentScore, na.rm = T)))#
-#
-## Merge:#
-#
-stadt$Sent <- hash[match(stadt$Word, hash$Word), ]$SentimentScore#
-stadt$AbsSent <- hash[match(stadt$Word, hash$Word), ]$AbsSent#
-#
-## Check overlap:#
-#
-sum(!is.na(stadt$Val))#
-sum(!is.na(stadt$Val)) / nrow(stadt)#
-#
-sum(!is.na(stadt$PosScore))#
-sum(!is.na(stadt$PosScore)) / nrow(stadt)#
-#
-sum(!is.na(stadt$Sent))#
-sum(!is.na(stadt$Sent)) / nrow(stadt)
-summary(warr.rough <- lm(Val ~ Roughness, stadt))
-summary(warr.hard <- lm(Val ~ Hardness, stadt))
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt))
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt))
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt))
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt))
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt))
-rough_newdata <- data.frame(Roughness = seq(-7, 7, 0.01))#
-rough_newdata$fit <- predict(warr.rough, rough_newdata)#
-rough_newdata$UB <- rough_newdata$fit + 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-rough_newdata$LB <- rough_newdata$fit - 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-#
-hard_newdata <- data.frame(Hardness = seq(-7, 7, 0.01))#
-hard_newdata$fit <- predict(warr.hard, hard_newdata)#
-hard_newdata$UB <- hard_newdata$fit + 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-hard_newdata$LB <- hard_newdata$fit - 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-#
-## Make a plot of this:#
-#
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(0, 9, 1), type = 2)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Roughness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Hardness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-stadt_COCA <- read.csv('stadt_context.csv')#
-#
-## Rename COCA columns:#
-#
-stadt_COCA <- rename(stadt_COCA, Freq = freq, Word = word, Noun = n2_lemma)#
-#
-## Make word column to lower caps:#
-#
-stadt_COCA$Word <- tolower(stadt_COCA$Word)#
-#
-## Get rid of NAs:#
-#
-stadt_COCA <- filter(stadt_COCA, !is.na(stadt_COCA$Word))#
-#
-## Separate by POS:#
-#
-adj <- filter(stadt_COCA, POS == 'jj')#
-#
-## Take only nn1:#
-#
-adj <- filter(adj, n2_POS == 'nn1')
-head(adj)
-group_by(adj, Word, Noun) %>% summarise(Freq = sum(Freq)) -> adj
-adj <- filter(adj, Word %in% stadt$Word)
-head(adj)
-nrow(adj)
-write.table(adj, 'stadtlander_murdoch_2000_COCA_context.csv', sep = ',', row.names = F)
-stadt_COCA <- read.csv('stadtlander_murdoch_2000_COCA_context.csv')
-head(stadt_COCA)
-stadt_COCA <- read.csv('stadtlander_murdoch_2000_COCA_context.csv')#
-#
-## Merge valence into adj:#
-#
-adj$Val <- aff[match(adj$Noun, aff$Word),]$Val#
-adj$AbsV <- aff[match(adj$Noun, aff$Word),]$AbsV
-stadt_COCA$Val <- aff[match(adj$Noun, aff$Word),]$Val#
-stadt_COCA$AbsV <- aff[match(adj$Noun, aff$Word),]$AbsV
-head(stadt_COCA)
-stadt_COCA$Sent <- hash[match(adj$Noun, hash$Word), ]$SentimentScore
-stadt_COCA <- read.csv('stadtlander_murdoch_2000_COCA_context.csv')#
-#
-## Merge Warriner valence into the data frame:#
-#
-stadt_COCA$Val <- aff[match(adj$Noun, aff$Word),]$Val#
-#
-## Merge Twitter Emotion Corpus data into it:#
-#
-stadt_COCA$Sent <- hash[match(adj$Noun, hash$Word), ]$SentimentScore
-all_nouns <- unique(stadt_COCA$Noun)#
-all_nouns <- data.frame(Noun = all_nouns)#
-all_nouns$PosScore <- NA#
-all_nouns$NegScore <- NA
-all_nouns <- unique(stadt_COCA$Noun)#
-all_nouns <- data.frame(Noun = all_nouns)#
-all_nouns$PosScore <- NA#
-all_nouns$NegScore <- NA#
-for (i in 1:nrow(all_nouns)) {#
-	this_word <- all_nouns[i,]$Word#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)#
-#
-	if (length(these_sent) > 0) {#
-		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])#
-		all_nouns[i,]$PosScore <- means[1]#
-		all_nouns[i,]$NegScore <- means[2]#
-		}#
-#
-	if (i %% 100 == 0) {#
-		cat(paste0(i, '\n'))#
-		}#
-	}
-summary(warr.rough <- lm(Val ~ Roughness, stadt_agr))
-all_nouns <- mutate(all_nouns, PosDiff = PosScore - NegScore)#
-#
-## Add to adj dataframe:#
-#
-stadt_COCA$PosDiff <- all_nouns[match(adj$Noun, all_nouns$Noun), ]$PosDiff
-stadt_freqs <- aggregate(Freq ~ Word, stadt_COCA, sum)#
-stadt_COCA$AdjFreq <- stadt_freqs[match(stadt_COCA$Word, stadt_freqs$Word),]$Freq#
-stadt_COCA$Weight <- stadt_COCA$Freq / stadt_COCA$AdjFreq
-stadt_agr <- summarise(group_by(stadt_COCA, Word),#
-	Val = weighted.mean(Valence, na.rm = T, w = Weight),#
-	Sent = mean(SentimentScore, na.rm = T, w = Weight),#
-	PosDiff = weighted.mean(PosDiff, na.rm = T, w = Weight))
-head(stadt_COCA)
-stadt_agr <- summarise(group_by(stadt_COCA, Word),#
-	Val = weighted.mean(Val, na.rm = T, w = Weight),#
-	Sent = mean(Sent, na.rm = T, w = Weight),#
-	PosDiff = weighted.mean(PosDiff, na.rm = T, w = Weight))
-stadt_agr$Roughness <- stadt[match(stadt_agr$Word, stadt$Word), ]$Roughness#
-stadt_agr$Hardness <- stadt[match(stadt_agr$Word, stadt$Word), ]$Hardness
-library(lmtest)#
-library(sandwich)#
-#
-## Correlate warriner valence with roughness and hardness:#
-#
-summary(warr.rough <- lm(Val ~ Roughness, stadt_agr))
-summary(warr.hard <- lm(Val ~ Hardness, stadt_agr))
-coeftest(warr.rough, vcov = vcovHC)
-summary(senti.rough <- lm(PosDiff ~ Roughness, adj_agr))
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt_agr))
-plot(stadt_agr$Roughness, stadt_agr$PosDiff)
-head(stadt_agr)
-head(all_nouns)
-unique(stadt_COCA$Noun)
-i
-all_nouns[i,]$Word
-head(all_nouns)
-all_nouns <- unique(stadt_COCA$Noun)#
-all_nouns <- data.frame(Noun = all_nouns)#
-all_nouns$PosScore <- NA#
-all_nouns$NegScore <- NA#
-for (i in 1:nrow(all_nouns)) {#
-	this_word <- all_nouns[i,]$Noun#
-	this_regex <- paste(paste0(this_word, '$'), paste0(this_word, ' '), sep = '|')#
-	these_sent <- grep(this_regex, sent$SynsetTerms)#
-#
-	if (length(these_sent) > 0) {#
-		means <- colMeans(sent[these_sent,c('PosScore', 'NegScore')])#
-		all_nouns[i,]$PosScore <- means[1]#
-		all_nouns[i,]$NegScore <- means[2]#
-		}#
-#
-	if (i %% 100 == 0) {#
-		cat(paste0(i, '\n'))#
-		}#
-	}#
-#
-## Difference score:#
-#
-all_nouns <- mutate(all_nouns, PosDiff = PosScore - NegScore)#
-#
-## Add to adj dataframe:#
-#
-stadt_COCA$PosDiff <- all_nouns[match(adj$Noun, all_nouns$Noun), ]$PosDiff#
-#
-## Compute weights:#
-#
-stadt_freqs <- aggregate(Freq ~ Word, stadt_COCA, sum)#
-stadt_COCA$AdjFreq <- stadt_freqs[match(stadt_COCA$Word, stadt_freqs$Word),]$Freq#
-stadt_COCA$Weight <- stadt_COCA$Freq / stadt_COCA$AdjFreq#
-#
-## Take frequency-weighted averages:#
-#
-stadt_agr <- summarise(group_by(stadt_COCA, Word),#
-	Val = weighted.mean(Val, na.rm = T, w = Weight),#
-	Sent = mean(Sent, na.rm = T, w = Weight),#
-	PosDiff = weighted.mean(PosDiff, na.rm = T, w = Weight))#
-#
-## Merge roughness and hardness into this:#
-#
-stadt_agr$Roughness <- stadt[match(stadt_agr$Word, stadt$Word), ]$Roughness#
-stadt_agr$Hardness <- stadt[match(stadt_agr$Word, stadt$Word), ]$Hardness
-SUBTL <- read.csv('SUBTLEX_US.csv')
-head(SUBTL)
-stadt_agr$POS <- stadt_agr[match(stadt_agr$Word, SUBTL$Word),]$Dom_PoS_SUBTLEX
-stadt_agr
-stadt_agr$POS <- stadt_agr[match(stadt_agr$Word, SUBTL$Word),]$Dom_PoS_SUBTLEX
-stadt_agr
-stadt_agr$POS
-stadt_agr$POS <- SUBTL[match(stadt_agr$Word, SUBTL$Word),]$Dom_PoS_SUBTLEX
-stadt_agr
-stadt_red <- filter(stadt_agr, POS == 'Adjective')
-summary(warr.rough <- lm(Val ~ Roughness, stadt_red))
-summary(warr.hard <- lm(Val ~ Hardness, stadt_red))
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt_red))
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt_red))
-summary(hash.rough <- lm(Sent ~ Roughness, stadt_red))
-summary(hash.hard <- lm(Sent ~ Hardness, stadt_red))
-summary(warr.rough <- lm(Val ~ Roughness, stadt_red))
-summary(warr.hard <- lm(Val ~ Hardness, stadt_red))
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt_red))
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt_red))
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt_red))
-summary(hash.rough <- lm(Sent ~ Roughness, stadt_red))
-summary(hash.hard <- lm(Sent ~ Hardness, stadt_red))
-summary(hash.rough <- lm(Sent ~ Roughness, stadt_red))
-summary(hash.rough <- lm(Sent ~ Roughness, stadt_red))
-summary(hash.hard <- lm(Sent ~ Hardness, stadt_red))
-rough_newdata <- data.frame(Roughness = seq(-7, 7, 0.01))#
-rough_newdata$fit <- predict(hash.rough, rough_newdata)#
-rough_newdata$UB <- rough_newdata$fit + 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-rough_newdata$LB <- rough_newdata$fit - 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-#
-hard_newdata <- data.frame(Hardness = seq(-7, 7, 0.01))#
-hard_newdata$fit <- predict(hash.hard, hard_newdata)#
-hard_newdata$UB <- hard_newdata$fit + 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-hard_newdata$LB <- hard_newdata$fit - 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1.5), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(-0.5, 1.5, 0.5), type = 2)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Roughness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1.5), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Hardness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(-0.5, 1.5, 0.5), type = 2)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Roughness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Hardness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(-0.5, 1.5, 0.5), type = 1)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Roughness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Hardness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-lower_axis
-left_axis
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(-0.5, 1.5, 0.5), type = 2)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Roughness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Hardness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(-0.5, 1.5, 0.5), type = 1)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Roughness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Hardness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(0, 9, 1), type = 1)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Roughness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Hardness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-summary(warr.rough <- lm(Val ~ Roughness, stadt))#
-summary(warr.hard <- lm(Val ~ Hardness, stadt))#
-#
-## Correlate senti valence with roughness and hardness:#
-#
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt))#
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt))#
-#
-## Correlate senti valence with roughness and hardness:#
-#
-summary(hash.rough <- lm(Sent ~ Roughness, stadt))#
-summary(hash.hard <- lm(Sent ~ Hardness, stadt))#
-#
-## Make a plot of the Warriner data:#
-#
-rough_newdata <- data.frame(Roughness = seq(-7, 7, 0.01))#
-rough_newdata$fit <- predict(warr.rough, rough_newdata)#
-rough_newdata$UB <- rough_newdata$fit + 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-rough_newdata$LB <- rough_newdata$fit - 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-#
-hard_newdata <- data.frame(Hardness = seq(-7, 7, 0.01))#
-hard_newdata$fit <- predict(warr.hard, hard_newdata)#
-hard_newdata$UB <- hard_newdata$fit + 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-hard_newdata$LB <- hard_newdata$fit - 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-#
-## Make a plot of this:#
-#
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(0, 9, 1), type = 1)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Roughness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Hardness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-seq(0, 9, 2)
-left_axis <- function(text = '', at = seq(0, 5, 1), type = 3, ...) {#
-	axis(side = 2, at = at, lwd = 2, font = 2, cex.axis = 1.5, las = 2, ...)#
-	if (type == 3) mtext(side = 2, text = text, line = 4.2, font = 2, cex = 1.4)#
-	if (type == 2) mtext(side = 2, text = text, line = 3.4, font = 2, cex = 2)#
-	if (type == 1) mtext(side = 2, text = text, line = 4.1, font = 2, cex = 2)#
-	}
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(0, 9, 1), type = 2)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Roughness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Hardness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-left_axis <- function(text = '', at = seq(0, 5, 1), type = 3, ...) {#
-	axis(side = 2, at = at, lwd = 2, font = 2, cex.axis = 1.5, las = 2, ...)#
-	if (type == 3) mtext(side = 2, text = text, line = 4.2, font = 2, cex = 1.4)#
-	if (type == 2) mtext(side = 2, text = text, line = 3.1, font = 2, cex = 2)#
-	if (type == 1) mtext(side = 2, text = text, line = 4.1, font = 2, cex = 2)#
-	}
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(0, 9, 1), type = 2)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Roughness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Hardness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-summary(warr.rough <- lm(Val ~ Roughness, stadt_red))#
-summary(warr.hard <- lm(Val ~ Hardness, stadt_red))#
-#
-## Correlate senti valence with roughness and hardness:#
-#
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt_red))#
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt_red))#
-#
-## Correlate senti valence with roughness and hardness:#
-#
-summary(hash.rough <- lm(Sent ~ Roughness, stadt_red))#
-summary(hash.hard <- lm(Sent ~ Hardness, stadt_red))#
-#
-## Make a plot of the Warriner data:#
-#
-rough_newdata <- data.frame(Roughness = seq(-7, 7, 0.01))#
-rough_newdata$fit <- predict(hash.rough, rough_newdata)#
-rough_newdata$UB <- rough_newdata$fit + 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-rough_newdata$LB <- rough_newdata$fit - 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-#
-hard_newdata <- data.frame(Hardness = seq(-7, 7, 0.01))#
-hard_newdata$fit <- predict(hash.hard, hard_newdata)#
-hard_newdata$UB <- hard_newdata$fit + 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-hard_newdata$LB <- hard_newdata$fit - 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-#
-## Make a plot of this:#
-#
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(-0.5, 1.5, 0.5), type = 1)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Roughness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Hardness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-setwd(file.path(mainPath, 'data'))#
-senses <- read.csv('wordnet_macmillan_senses.csv')
-head(stadt_agr)
-stadt_agr <- cbind(stadt_agr, senses[match(stadt_agr$Word, senses$Word), c('WordNet', 'MacMillan')])
-head(stadt_agr)
-stadt_agr$AbsRoughness <- abs(stadt_agr$Roughness)#
-stadt_agr$AbsHardness <- abs(stadt_agr$Hardness)
-library(MASS)
-summary(wn.rough <- glm.nb(WordNet ~ AbsRoughness, stadt_agr[stadt_agr$Word != 'flat',]))#
-summary(wn.hard <- glm.nb(WordNet ~ AbsHardness, stadt_agr[stadt_agr$Word != 'clean',]))
-summary(mac.rough <- glm.nb(MacMillan ~ AbsRoughness, stadt_agr[stadt_agr$Word != 'flat',]))#
-summary(mac.hard <- glm.nb(MacMillan ~ AbsHardness, stadt_agr[stadt_agr$Word != 'clean',]))
-anova(wn.rough)
-anova(wn.hard)
-anova(mac.rough)
-anova(mac.hard)
-wn.rough.pred <- as.data.frame(predict.glm(wn.rough,#
-	newdata = data.frame(AbsRoughness = seq(0, 7, 0.1)),#
-	se.fit = T, type = 'response')[1:2])#
-wn.hard.pred <- as.data.frame(predict.glm(wn.hard,#
-	newdata = data.frame(AbsHardness = seq(0, 7, 0.1)),#
-	se.fit = T, type = 'response')[1:2])#
-#
-## Add upper and lower confidence bands:#
-#
-wn.rough.pred$UB <- wn.rough.pred$fit + 1.96 * wn.rough.pred$se.fit#
-wn.rough.pred$LB <- wn.rough.pred$fit - 1.96 * wn.rough.pred$se.fit#
-#
-wn.hard.pred$UB <- wn.hard.pred$fit + 1.96 * wn.hard.pred$se.fit#
-wn.hard.pred$LB <- wn.hard.pred$fit - 1.96 * wn.hard.pred$se.fit#
-#
-## Define points to show text for:#
-#
-hardness_points <- c('hard', 'soft', 'solid', 'tender', 'sharp', 'tough', 'stiff', 'crisp', 'brittle')#
-roughness_points <- c('rough', 'smooth', 'firm', 'broken', 'slick', 'fine', 'crisp', 'blunt', 'woolly')#
-hard_words <- stadt_agr[stadt_agr$Word %in% hardness_points,]#
-rough_words <- stadt_agr[stadt_agr$Word %in% roughness_points,]#
-#
-## Make a plot of this:#
-#
-lower_factor = 1#
-setup_plots(N = 2)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(a)')#
-points(seq(0, 7, 0.1), wn.rough.pred$fit, type = 'l', lwd = 3)#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.rough.pred$UB, rev(wn.rough.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-points(stadt_agr$AbsRoughness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-text(rough_words$AbsRoughness, rough_words$WordNet - lower_factor, labels = rough_words$Word, font = 2)#
-left_axis(text = 'No. of Dictionary Meanings', at = seq(0, 20, 5), type = 2)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Roughness', line = 3, font = 2, cex = 1.5)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(b)')#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.hard.pred$UB, rev(wn.hard.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-text(hard_words$AbsHardness, hard_words$WordNet - lower_factor, labels = hard_words$Word, font = 2)#
-points(seq(0, 7, 0.1), wn.hard.pred$fit, type = 'l', lwd = 3)#
-points(stadt_agr$AbsHardness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-axis(side = 1, cex.axis = 1.25, lwd.ticks = 2, font = 2, at = seq(0, 7, 1), labels = T)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Hardness', line = 3, font = 2, cex = 1.5)#
-# for the hardness plot, the word 'clean' is not shown; for the roughness plot, the word 'flat' is not shown
-lower_factor = 1#
-setup_plots(N = 2)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(a)')#
-points(seq(0, 7, 0.1), wn.rough.pred$fit, type = 'l', lwd = 3)#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.rough.pred$UB, rev(wn.rough.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-points(stadt_agr$AbsRoughness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-text(rough_words$AbsRoughness, rough_words$WordNet - lower_factor, labels = rough_words$Word, font = 2)#
-left_axis(text = 'Dictionary Meanings', at = seq(0, 20, 5), type = 2)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Roughness', line = 3, font = 2, cex = 1.5)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(b)')#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.hard.pred$UB, rev(wn.hard.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-text(hard_words$AbsHardness, hard_words$WordNet - lower_factor, labels = hard_words$Word, font = 2)#
-points(seq(0, 7, 0.1), wn.hard.pred$fit, type = 'l', lwd = 3)#
-points(stadt_agr$AbsHardness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-axis(side = 1, cex.axis = 1.25, lwd.ticks = 2, font = 2, at = seq(0, 7, 1), labels = T)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Hardness', line = 3, font = 2, cex = 1.5)#
-# for the hardness plot, the word 'clean' is not shown; for the roughness plot, the word 'flat' is not shown
-left_axis <- function(text = '', at = seq(0, 5, 1), type = 3, ...) {#
-	axis(side = 2, at = at, lwd = 2, font = 2, cex.axis = 1.5, las = 2, ...)#
-	if (type == 3) mtext(side = 2, text = text, line = 4.2, font = 2, cex = 1.4)#
-	if (type == 2) mtext(side = 2, text = text, line = 3.2, font = 1.9, cex = 2)#
-	if (type == 1) mtext(side = 2, text = text, line = 4.1, font = 2, cex = 2)#
-	}
-lower_factor = 1#
-setup_plots(N = 2)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(a)')#
-points(seq(0, 7, 0.1), wn.rough.pred$fit, type = 'l', lwd = 3)#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.rough.pred$UB, rev(wn.rough.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-points(stadt_agr$AbsRoughness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-text(rough_words$AbsRoughness, rough_words$WordNet - lower_factor, labels = rough_words$Word, font = 2)#
-left_axis(text = 'Dictionary Meanings', at = seq(0, 20, 5), type = 2)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Roughness', line = 3, font = 2, cex = 1.5)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(b)')#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.hard.pred$UB, rev(wn.hard.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-text(hard_words$AbsHardness, hard_words$WordNet - lower_factor, labels = hard_words$Word, font = 2)#
-points(seq(0, 7, 0.1), wn.hard.pred$fit, type = 'l', lwd = 3)#
-points(stadt_agr$AbsHardness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-axis(side = 1, cex.axis = 1.25, lwd.ticks = 2, font = 2, at = seq(0, 7, 1), labels = T)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Hardness', line = 3, font = 2, cex = 1.5)#
-# for the hardness plot, the word 'clean' is not shown; for the roughness plot, the word 'flat' is not shown
-left_axis <- function(text = '', at = seq(0, 5, 1), type = 3, ...) {#
-	axis(side = 2, at = at, lwd = 2, font = 2, cex.axis = 1.5, las = 2, ...)#
-	if (type == 3) mtext(side = 2, text = text, line = 4.2, font = 2, cex = 1.4)#
-	if (type == 2) mtext(side = 2, text = text, line = 3.2, font = 2, cex = 1.9)#
-	if (type == 1) mtext(side = 2, text = text, line = 4.1, font = 2, cex = 2)#
-	}
-lower_factor = 1#
-setup_plots(N = 2)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(a)')#
-points(seq(0, 7, 0.1), wn.rough.pred$fit, type = 'l', lwd = 3)#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.rough.pred$UB, rev(wn.rough.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-points(stadt_agr$AbsRoughness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-text(rough_words$AbsRoughness, rough_words$WordNet - lower_factor, labels = rough_words$Word, font = 2)#
-left_axis(text = 'Dictionary Meanings', at = seq(0, 20, 5), type = 2)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Roughness', line = 3, font = 2, cex = 1.5)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(b)')#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.hard.pred$UB, rev(wn.hard.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-text(hard_words$AbsHardness, hard_words$WordNet - lower_factor, labels = hard_words$Word, font = 2)#
-points(seq(0, 7, 0.1), wn.hard.pred$fit, type = 'l', lwd = 3)#
-points(stadt_agr$AbsHardness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-axis(side = 1, cex.axis = 1.25, lwd.ticks = 2, font = 2, at = seq(0, 7, 1), labels = T)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Hardness', line = 3, font = 2, cex = 1.5)#
-# for the hardness plot, the word 'clean' is not shown; for the roughness plot, the word 'flat' is not shown
-left_axis <- function(text = '', at = seq(0, 5, 1), type = 3, ...) {#
-	axis(side = 2, at = at, lwd = 2, font = 2, cex.axis = 1.5, las = 2, ...)#
-	if (type == 3) mtext(side = 2, text = text, line = 4.2, font = 2, cex = 1.4)#
-	if (type == 2) mtext(side = 2, text = text, line = 3.3, font = 2, cex = 1.9)#
-	if (type == 1) mtext(side = 2, text = text, line = 4.1, font = 2, cex = 2)#
-	}
-lower_factor = 1#
-setup_plots(N = 2)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(a)')#
-points(seq(0, 7, 0.1), wn.rough.pred$fit, type = 'l', lwd = 3)#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.rough.pred$UB, rev(wn.rough.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-points(stadt_agr$AbsRoughness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-text(rough_words$AbsRoughness, rough_words$WordNet - lower_factor, labels = rough_words$Word, font = 2)#
-left_axis(text = 'Dictionary Meanings', at = seq(0, 20, 5), type = 2)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Roughness', line = 3, font = 2, cex = 1.5)#
-emptyplot(xlim = c(-0.5, 7.5), ylim = c(0, 22), AB = '(b)')#
-polygon(x = c(seq(0, 7, 0.1), rev(seq(0, 7, 0.1))),#
-	y = c(wn.hard.pred$UB, rev(wn.hard.pred$LB)), col = rgb(0, 0, 0, 0.4), border = NA)#
-text(hard_words$AbsHardness, hard_words$WordNet - lower_factor, labels = hard_words$Word, font = 2)#
-points(seq(0, 7, 0.1), wn.hard.pred$fit, type = 'l', lwd = 3)#
-points(stadt_agr$AbsHardness, stadt_agr$WordNet, pch = 19, cex = 1.05, col = rgb(0, 0, 0, 0.65))#
-axis(side = 1, cex.axis = 1.25, lwd.ticks = 2, font = 2, at = seq(0, 7, 1), labels = T)#
-lower_axis(style = 'continuous', at = seq(0, 7, 1), lab = '', type = 1)#
-mtext(side = 1, text = 'Absolute Hardness', line = 3, font = 2, cex = 1.5)#
-# for the hardness plot, the word 'clean' is not shown; for the roughness plot, the word 'flat' is not shown
-## Do analysis controlling for sense counts:#
-#
-summary(rough.val <- lm(Val ~ Roughness + log(WordNet), stadt_agr))
-summary(hard.val <- lm(Val ~ Hardness + log(WordNet), stadt_agr))
-summary(rough.senti <- lm(PosDiff ~ Roughness + log(WordNet), stadt_agr))
-summary(hard.senti <- lm(PosDiff ~ Hardness + log(WordNet), stadt_agr))
-summary(rough.hash <- lm(SentimentScore ~ Roughness + log(WordNet), stadt_agr))
-summary(hard.hash <- lm(SentimentScore ~ Hardness + log(WordNet), stadt_agr))
-summary(rough.hash <- lm(Sent ~ Roughness + log(WordNet), stadt_agr))
-summary(hard.hash <- lm(Sent ~ Hardness + log(WordNet), stadt_agr))
-summary(warr.rough <- lm(Val ~ Roughness, stadt_red))#
-summary(warr.hard <- lm(Val ~ Hardness, stadt_red))#
-#
-## Correlate senti valence with roughness and hardness:#
-#
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt_red))#
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt_red))#
-#
-## Correlate senti valence with roughness and hardness:#
-#
-summary(hash.rough <- lm(Sent ~ Roughness, stadt_red))#
-summary(hash.hard <- lm(Sent ~ Hardness, stadt_red))#
-#
-## Make a plot of the Warriner data:#
-#
-rough_newdata <- data.frame(Roughness = seq(-7, 7, 0.01))#
-rough_newdata$fit <- predict(hash.rough, rough_newdata)#
-rough_newdata$UB <- rough_newdata$fit + 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-rough_newdata$LB <- rough_newdata$fit - 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-#
-hard_newdata <- data.frame(Hardness = seq(-7, 7, 0.01))#
-hard_newdata$fit <- predict(hash.hard, hard_newdata)#
-hard_newdata$UB <- hard_newdata$fit + 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-hard_newdata$LB <- hard_newdata$fit - 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-#
-## Make a plot of this:#
-#
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(-0.5, 1.5, 0.5), type = 1)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Roughness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Hardness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(a)')#
-left_axis(text = 'Context Valence', at = seq(-0.5, 1.5, 0.5), type = 1)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Roughness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(-0.5, 1), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt_red$Hardness, stadt_red$Sent, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
-summary(warr.rough <- lm(Val ~ Roughness, stadt))#
-summary(warr.hard <- lm(Val ~ Hardness, stadt))#
-#
-## Correlate senti valence with roughness and hardness:#
-#
-summary(senti.rough <- lm(PosDiff ~ Roughness, stadt))#
-summary(senti.hard <- lm(PosDiff ~ Hardness, stadt))#
-#
-## Correlate senti valence with roughness and hardness:#
-#
-summary(hash.rough <- lm(Sent ~ Roughness, stadt))#
-summary(hash.hard <- lm(Sent ~ Hardness, stadt))#
-#
-## Make a plot of the Warriner data:#
-#
-rough_newdata <- data.frame(Roughness = seq(-7, 7, 0.01))#
-rough_newdata$fit <- predict(warr.rough, rough_newdata)#
-rough_newdata$UB <- rough_newdata$fit + 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-rough_newdata$LB <- rough_newdata$fit - 1.96 * predict(warr.rough, rough_newdata, se.fit = T)$se.fit#
-#
-hard_newdata <- data.frame(Hardness = seq(-7, 7, 0.01))#
-hard_newdata$fit <- predict(warr.hard, hard_newdata)#
-hard_newdata$UB <- hard_newdata$fit + 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-hard_newdata$LB <- hard_newdata$fit - 1.96 * predict(warr.hard, hard_newdata, se.fit = T)$se.fit#
-#
-## Make a plot of this:#
-#
-setup_plots(N = 2)#
-# plot 1#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(a)')#
-left_axis(text = 'Valence', at = seq(0, 9, 1), type = 2)#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Roughness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(rough_newdata$Roughness, rev(rough_newdata$Roughness)),#
-	c(rough_newdata$UB, rev(rough_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(rough_newdata$Roughness, rough_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Roughness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))#
-# plot 2#
-emptyplot(xlim = c(-7, 7), ylim = c(0, 9), AB = '(b)')#
-lower_axis(style = 'continuous', at = seq(-7, 7, 3.5),#
-	lab = 'Hardness Ratings', type = 1, labels = c('-7', '-3.5', '0', '+3.5', '+7'))#
-polygon(c(hard_newdata$Hardness, rev(hard_newdata$Hardness)),#
-	c(hard_newdata$UB, rev(hard_newdata$LB)), col = rgb(0, 0, 0, 0.4), border = F)#
-points(hard_newdata$Hardness, hard_newdata$fit, lwd = 2, type = 'l')#
-points(stadt$Hardness, stadt$Val, pch = 19,#
-	cex = 0.7, col = rgb(0, 0, 0, 0.9))
+emptyplot(xlim = c(0.5, 5.5), ylim = c(0, 18000))#
+draw_preds(xmdl.df)#
+lower_axis(type = 2, N = xagr.rand$DominantModality)#
+left_axis(at = seq(0, 18000, 2000),#
+	text = 'Predicted word frequency', type = 1,#
+	labels = paste0(seq(0, 18, 2), 'k'))
+76/121
+l[l$DominantModality == 'Haptic',]
+l[l$DominantModality == 'Haptic',]$Word
